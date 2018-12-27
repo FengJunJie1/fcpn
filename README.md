@@ -38,27 +38,32 @@ and hybrid simulation.
     * Diversified export of simulation results.
     * Custom simulation result drawing.
 ## Download and Get Started.
-** Operating environment：
+Operating environment：
 <br>
 The software is developed with C++ and QT in the windows operational systems. Currently, we only offer the Windows and Linux verions, but we are also devoting to offer the Mac version as soon as possible.
 <br>
-** Download 
+---------------------------------------------
+Download 
 <br>
-*** Windows
+- Windows version (64bit)
 <br>
-Please download the zip file [FCPN.zip](https://github.com/wjsunscut/fcpn/raw/master/FCPN.zip). Then unzip it and click the `FCPN.exe` to run the software.
+Please download the zip file [FCPN.zip](https://github.com/liufei2016/fcpn/raw/master/FCPN.zip). Then unzip it and click the `FCPN.exe` to run the software.
 <br>
-Or you can choose to download [Install_FCPN.exe](https://github.com/wjsunscut/fcpn/raw/master/Install_FCPN.exe) and install it. Run `FCPN.exe` after installation.
+Or you can choose to download [Install_FCPN.exe](https://github.com/liufei2016/fcpn/raw/master/Install_FCPN.exe) and install it. Run `FCPN.exe` after installation.
 <br>
-*** Linux
+- Linux
 <br>
-Please download the zip file [FCPN_Linux.tar.xz](https://github.com/wjsunscut/fcpn/raw/master/FCPN_Linux.tar.xz). Then unzip it. Run
+Ubuntu 18.10 (64bit): [FCPN_Linux.tar.xz](https://github.com/liufei2016/fcpn/raw/master/FCPN_Linux.tar.xz).
 <br>
+after download, extract the archive with "tar xzfv snoopy-stable-linux*.tgz"
 `chmod +x FCPN.sh`
 <br>
 `./FCPN.sh`
 <br>
 to use the software.
+- Mac OS X version
+<br>
+To be released.
 ## Manual
 Manual can be found at [Manual.pdf](https://github.com/wjsunscut/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples.zip](https://github.com/wjsunscut/fcpn/raw/master/Examples/Examples.zip).
 ## FAQs
