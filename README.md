@@ -58,7 +58,7 @@ Download:
 * Mac OS X version
   * To be released.
 ## Manual
-Manual can be found at [Manual.pdf](https://github.com/wjsunscut/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples.zip](https://github.com/wjsunscut/fcpn/raw/master/Examples/Examples.zip).
+Manual can be found at [Manual.pdf](https://github.com/liufei2016/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples.zip](https://github.com/liufei2016/fcpn/raw/master/Examples/Examples.zip).
 ## FAQs
 Q: How does a node name in FCPN look like?
 <br>
