@@ -53,7 +53,7 @@ Download:
 * Linux
   * Ubuntu 18.10 (64bit): Please download [FCPN_Linux.tar.xz](https://github.com/liufei2016/fcpn/raw/master/FCPN_Linux.tar.xz).
   * Extract the archive with "tar xzfv FCPN_Linux.tar.xz".
-  * Run `chmod +x FCPN.sh``./FCPN.sh` in the FCPN folder.
+  * Run `chmod +x FCPN.sh` and `./FCPN.sh` in the FCPN folder.
 * Mac OS X version
   * To be released.
 ## Manual
