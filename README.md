@@ -46,13 +46,14 @@ The software is developed with C++ and QT in the windows operational systems. Cu
 Download:
 * Windows version (64bit)
   * Please download the zip file [FCPN.zip](https://github.com/liufei2016/fcpn/raw/master/FCPN.zip). 
-    * Then unzip it and click the `FCPN.exe` to run the software.
+    * Then unzip it and double click on the `FCPN.exe` to run the software.
   * Or you can choose to download [Install_FCPN.exe](https://github.com/liufei2016/fcpn/raw/master/Install_FCPN.exe).
     * Install it. 
-    * Run `FCPN.exe` after installation.
+    * Double click on `FCPN.exe` or the icon on your desktop after installation.
 * Linux
   * Ubuntu 18.10 (64bit): Please download [FCPN_Linux.tar.xz](https://github.com/liufei2016/fcpn/raw/master/FCPN_Linux.tar.xz).
-  * Extract the archive with "tar xzfv FCPN_Linux.tar.xz".
+  * Extract the archive with `tar xzfv FCPN_Linux.tar.xz`.
+  * Change into the directory `cd FCPN`.
   * Run `chmod +x FCPN.sh` and `./FCPN.sh` in the FCPN folder.
 * Mac OS X version
   * To be released.
