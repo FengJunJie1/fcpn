@@ -45,14 +45,15 @@ The software is developed with C++ and QT in the windows operational systems. Cu
 **************************
 Download:
 * Windows version (64bit)
-  * Please download the zip file [FCPN.zip](https://github.com/liufei2016/fcpn/raw/master/FCPN.zip). Then unzip it and click the `FCPN.exe` to run the software.
-  * Or you can choose to download [Install_FCPN.exe](https://github.com/liufei2016/fcpn/raw/master/Install_FCPN.exe) and install it. Run `FCPN.exe` after installation.
+  * Please download the zip file [FCPN.zip](https://github.com/liufei2016/fcpn/raw/master/FCPN.zip). 
+    * Then unzip it and click the `FCPN.exe` to run the software.
+  * Or you can choose to download [Install_FCPN.exe](https://github.com/liufei2016/fcpn/raw/master/Install_FCPN.exe).
+    * Install it. 
+    * Run `FCPN.exe` after installation.
 * Linux
-  * Ubuntu 18.10 (64bit): [FCPN_Linux.tar.xz](https://github.com/liufei2016/fcpn/raw/master/FCPN_Linux.tar.xz).
-after download, extract the archive with "tar xzfv snoopy-stable-linux*.tgz"
-`chmod +x FCPN.sh`
-`./FCPN.sh`
-to use the software.
+  * Ubuntu 18.10 (64bit): Please download [FCPN_Linux.tar.xz](https://github.com/liufei2016/fcpn/raw/master/FCPN_Linux.tar.xz).
+  * Extract the archive with "tar xzfv FCPN_Linux.tar.xz".
+  * Run `chmod +x FCPN.sh``./FCPN.sh` in the FCPN folder.
 * Mac OS X version
   * To be released.
 ## Manual
