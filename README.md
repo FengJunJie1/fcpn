@@ -23,20 +23,16 @@ firm mathematical foundation for the analysis of system properties. This softwar
 provides fuzzy continuous Petri net modeling and simulation functions
 for researchers in the field of systems biology.
 <br>
-This software includes three main functions: continuous Petri nets modeling, fuzzy modeling,
-and hybrid simulation. 
+This software includes three main functions: continuous Petri nets modeling, fuzzy modeling, and hybrid simulation. 
 ## Features
 * Features for modeling
   * Concise and efficient interface design.
-    * Drawing of the Petri net graph as usual.
-    * Flexible user-defined functions.
-    * Multiple fuzzy logic choices.
-    * Simple and fast fuzzy logic settings.
-    * Rich shortcut settings, such as undo, redo, save, print, etc.
+  * Multiple fuzzy logic choices: Mamdani & T-S fuzzy inference.
+  * Simple and fast fuzzy logic settings.
 * Features for simulation
   * Highly automated simulation process.
-    * Diversified export of simulation results.
-    * Custom simulation result drawing.
+  * Diversified export of simulation results.
+  * Custom simulation result drawing.
 ## Download and Get Started.
 Operating environment:
 <br>
