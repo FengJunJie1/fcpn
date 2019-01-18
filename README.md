@@ -37,7 +37,7 @@ This software includes three main functions: continuous Petri nets modeling, fuz
 ## Download and Get Started.
 Operating environment:
 <br>
-The software is developed with C++ and QT in the windows operational systems. Currently, we only offer the Windows and Linux verions, but we are also devoting to offer the Mac version as soon as possible.
+The software is developed with C++ and QT in the windows operational systems. We only offer the Windows, Linux, and macOS(beta) verions. 
 <br>
 **************************
 Download:
