@@ -3,11 +3,11 @@
 <br>
 ![Latest version](https://img.shields.io/badge/Latest%20version-1.0.1-blue.svg)
 ![Programming language](https://img.shields.io/badge/Programming%20language-C++-red.svg)
-![Operating system](https://img.shields.io/badge/Operating%20system-Windows_Linux-yellow.svg)
+![Operating system](https://img.shields.io/badge/Operating%20system-Windows_Linux_macOS-yellow.svg)
 <br>
 *Authors*: Fei Liu, Wujie Sun, Yexuan Sun, Yuchen Zhou, Shijing Zhu, and Zhijie Zhang.
 ## News
-2019-1-18  Mac beta version of FCPN is released.<br>
+2019-1-18  MacOS beta version of FCPN is released.<br>
 2018-12-22 Linux beta version of FCPN is released.<br>
 2018-12-05 New stable version of FCPN is released.<br>
 2018-08-31 The first version of FCPN is finished and internally used.<br>
@@ -52,8 +52,8 @@ Download:
   * Extract the archive with `tar xzfv FCPN_Linux.tar.xz`.
   * Change into the directory `cd FCPN`.
   * Run `chmod +x FCPN.sh` and `./FCPN.sh` in the FCPN folder.
-* Mac
-  * macOS 10.14 Mojave: Please download [FCPN.dmg](https://github.com/liufei2016/fcpn/raw/master/FCPN.dmg).
+* MacOS
+  * MacOS 10.14 Mojave: Please download [FCPN.dmg](https://github.com/liufei2016/fcpn/raw/master/FCPN.dmg).
   * Run the software.
 ## Manual
 Manual can be found at [Manual.pdf](https://github.com/liufei2016/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples.zip](https://github.com/liufei2016/fcpn/raw/master/Examples/Examples.zip).
