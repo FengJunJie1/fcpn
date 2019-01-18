@@ -9,7 +9,7 @@
 ## News
 2019-1-18  MacOS beta version of FCPN is released.<br>
 2018-12-22 Linux beta version of FCPN is released.<br>
-2018-12-05 New stable version of FCPN is released.<br>
+2018-12-05 New Windows stable version of FCPN is released.<br>
 2018-08-31 The first version of FCPN is finished and internally used.<br>
 ## Table of Contents
 - [Background and Introduction](#background-and-introduction)
@@ -37,7 +37,7 @@ This software includes three main functions: continuous Petri nets modeling, fuz
 ## Download and Get Started.
 Operating environment:
 <br>
-The software is developed with C++ and QT in the windows operational systems. We only offer the Windows, Linux, and macOS(beta) verions. 
+The software is developed with C++ and QT in the Windows operational systems. We only offer the Windows, Linux, and macOS(beta) verions. 
 <br>
 **************************
 Download:
