@@ -51,8 +51,9 @@ Download:
   * Extract the archive with `tar xzfv FCPN_Linux.tar.xz`.
   * Change into the directory `cd FCPN`.
   * Run `chmod +x FCPN.sh` and `./FCPN.sh` in the FCPN folder.
-* Mac OS X version
-  * To be released.
+* Mac
+  * macOS 10.14 Mojave: Please download [FCPN.dmg](https://github.com/liufei2016/fcpn/raw/master/FCPN.dmg).
+  * Run the software.
 ## Manual
 Manual can be found at [Manual.pdf](https://github.com/liufei2016/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples.zip](https://github.com/liufei2016/fcpn/raw/master/Examples/Examples.zip).
 ## FAQs
