@@ -8,27 +8,6 @@
             <name>
                 <text>water_ODE_5_0</text>
             </name>
-            <place id="p1">
-                <name>
-                    <text>O2</text>
-                    <graphics>
-                        <offset x="30" y="30"/>
-                    </graphics>
-                </name>
-                <toolspecific tool="petrinet" version="1.0">
-                    <placeCapacity capacity="0"/>
-                </toolspecific>
-                <graphics>
-                    <position x="1195" y="2380"/>
-                </graphics>
-                <initialMarking>
-                    <text>20</text>
-                </initialMarking>
-                <comment>
-                    <text></text>
-                    <show>N</show>
-                </comment>
-            </place>
             <place id="p2">
                 <name>
                     <text>H2O</text>
@@ -36,11 +15,15 @@
                         <offset x="30" y="30"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1563" y="2249"/>
+                    <position x="522" y="265"/>
                 </graphics>
                 <initialMarking>
                     <text>0</text>
@@ -57,14 +40,43 @@
                         <offset x="30" y="30"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1198" y="2155"/>
+                    <position x="235" y="211"/>
                 </graphics>
                 <initialMarking>
                     <text>30</text>
+                </initialMarking>
+                <comment>
+                    <text></text>
+                    <show>N</show>
+                </comment>
+            </place>
+            <place id="p1">
+                <name>
+                    <text>O2</text>
+                    <graphics>
+                        <offset x="30" y="27"/>
+                    </graphics>
+                </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="236" y="316"/>
+                </graphics>
+                <initialMarking>
+                    <text>20</text>
                 </initialMarking>
                 <comment>
                     <text></text>
@@ -75,14 +87,18 @@
                 <name>
                     <text>t0</text>
                     <graphics>
-                        <offset x="30" y="10"/>
+                        <offset x="31" y="16"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1363" y="2264"/>
+                    <position x="383" y="266"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.1)</text>
@@ -92,20 +108,6 @@
                     <show>N</show>
                 </comment>
             </transition>
-            <arc id="a0" source="p0" target="t0">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>2</text>
-                </expression>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>23.284271247</TimeStep>
-                </fis>
-            </arc>
             <arc id="a1" source="p1" target="t0">
                 <inscription>
                     <text>1</text>
@@ -113,6 +115,28 @@
                 <expression>
                     <text>1</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>23.284271247</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a0" source="p0" target="t0">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>2</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
@@ -127,6 +151,10 @@
                 <expression>
                     <text>2</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
