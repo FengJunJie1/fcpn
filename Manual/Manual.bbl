@@ -1,0 +1,55 @@
+\begin{thebibliography}{1}
+
+\bibitem{petrinet}
+Petri net.
+\newblock \url{https://en.wikipedia.org/wiki/Petri_net}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{fuzzylogic}
+Fuzzy logic.
+\newblock \url{https://en.wikipedia.org/wiki/Fuzzy_logic}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{fip}
+Fuzzy inference process.
+\newblock
+  \url{https://www.mathworks.com/help/fuzzy/fuzzy-inference-process.html}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{mamdani}
+Mamdani-type fuzzy inference.
+\newblock
+  \url{https://www.mathworks.com/help/fuzzy/what-is-mamdani-type-fuzzy-inference.html}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{ts}
+Sugeno-type fuzzy inference.
+\newblock
+  \url{https://www.mathworks.com/help/fuzzy/what-is-sugeno-type-fuzzy-inference.html}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{enzyme}
+Enzyme.
+\newblock \url{https://en.wikipedia.org/wiki/Enzyme}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{rkip}
+Raf kinase inhibitor protein.
+\newblock \url{https://en.wikipedia.org/wiki/Raf_kinase_inhibitor_protein}.
+\newblock Accessed: 2018-09-29.
+
+\bibitem{lavrova2017ordinary}
+Anastasia~I Lavrova, Eugene~B Postnikov, Andrey~Yu Zyubin, and Svetlana~V
+  Babak.
+\newblock Ordinary differential equations and boolean networks in application
+  to modelling of 6-mercaptopurine metabolism.
+\newblock {\em Royal Society open science}, 4(4):160872, 2017.
+
+\bibitem{lavrova2016ode}
+Anastasia~I Lavrova, Eugene~B Postnikov, Andrey~Yu Zyubin, and Svetlana~V
+  Babak.
+\newblock Ode and random boolean networks in application to modelling of
+  6-mercaptopurine metabolism.
+\newblock {\em arXiv preprint arXiv:1611.00054}, 2016.
+
+\end{thebibliography}

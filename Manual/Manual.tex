@@ -1,0 +1,1012 @@
+\documentclass[journal,a4paper,onecolumn]{article}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+%opening
+
+\usepackage[colorlinks,
+            linkcolor=blue,
+            anchorcolor=blue,
+            citecolor=blue,
+						urlcolor = blue
+            ]{hyperref}
+
+
+\usepackage{color}
+\newcommand{\comR}[1]{\textcolor{red}{\emph{#1}}}
+\newcommand{\comG}[1]{\textcolor{green}{\emph{#1}}}
+\newcommand{\comB}[1]{\textcolor{blue}{\emph{#1}}}
+\newcommand{\comM}[1]{\textcolor{magenta}{\emph{#1}}}
+\newcommand{\comC}[1]{\textcolor{cyan}{\emph{#1}}}
+
+%\newcommand{\comR}[1]{#1}
+%\newcommand{\comG}[1]{#1}
+%\newcommand{\comB}[1]{#1}
+%\newcommand{\comM}[1]{#1}
+%\newcommand{\comC}[1]{#1}
+
+
+\begin{document}
+	\title{FCPN -- A Fuzzy Continuous Petri Net Modeling and Simulation Tool}
+	\author{Fei Liu, Wujie Sun\\
+	School of Software Engineering, \\South China University of Technology}
+\maketitle
+\clearpage
+
+\tableofcontents
+\clearpage
+
+
+\section{Introduction}
+
+Systems biology % \citep{Kit02, Ade05}
+aims to study the interactions between the components of a biological system and how these interactions cause the behaviour of the system as a whole. Modelling and simulation plays an essential role in the study of systems biology by employing the data to build mathematical or computational models of a biological system, which help biologists to better understand and predict the system. However, the complexity of biological systems gives rise to a number of modelling challenges, one of which is uncertainty. %\cite{GRH00}
+
+The uncertainty further constitutes the structural uncertainty and parametric uncertainty for a biological model.
+
+On the other hand, continuous Petri nets (CPNs) offer a graphical way to represent systems of ordinary differential equations (ODEs). %\cite{BGH+08}
+In a CPN model, places take real-valued tokens to represent the concentration of species, while transitions represent continuous changes of concentrations. 
+
+By adding fuzzy rules to CPNs, we further obtain fuzzy continuous Petri nets (FCPNs). Therefore an FCPN model can be divided into two parts: the certain ODE part and the uncertain fuzzy logic part, thus achieving the modeling of a biological system where we have sufficient data for some components but insufficient information for others.
+
+\subsection{Petri nets}
+Petri nets provide a formal and graphical representation of systems based on their firm mathematical foundation for the analysis of system properties. 
+
+A Petri net, also known as a place/transition (PT) net, is one of several mathematical modeling languages for the description of distributed systems. It is a class of discrete event dynamic system. A Petri net is a directed bipartite graph, in which the nodes represent transitions (i.e. events that may occur, represented by bars) and places (i.e. conditions, represented by circles). The directed arcs describe which places are pre- and/or postconditions for which transitions (signified by arrows). \cite{petrinet} No arc is allowed between the two places or transitions. Each arc has its own weight, and the default value is 1.
+
+Let's take the reaction $2H_2+O_2\to 2H_2O$ for example. The Petri nets of the it is shown as Figure 1. Circles named $H_2$, $O_2$, and $H_2O$ are places while the square named $t_0$ is the transition. As we can see, $H_2$ and $O_2$ are preconditions for $t_0$ while $H_2O$ is the postcondition for $t_0$. The tokens of $H_2$, $O_2$, and $H_2O$ are 30, 20, and 0, respectively. So this Petri net can be interpreted as: 2 parts $H_2$ and 1 part $O_2$ participate in the reaction, which produces 2 parts $H_2O$. And the initial parts of $H_2$, $O_2$, and $H_2O$ are 30, 20, and 0, respectively.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.5\columnwidth]{fig47}
+		\caption{Example of Petri nets.}
+		\label{fig:Example of Petri nets}
+	\end{center}
+\end{figure}
+
+%\comR{Please extend this according to
+%\url{http://www-dssz.informatik.tu-cottbus.de/publications/papers/Heiner+2008-bookchapter-levchenko-cascade.pdf}}
+
+%\comB{give the H2O example}
+
+\subsection{Continuous Petri nets}
+
+A continuous Petri net is a variant of Petri nets. In this model, the values identified in each place are non-negative real values (no longer required to be non-negative integer values), and the conditions and results of the transitions are also changed accordingly: the occurrences are positive real values.
+
+ODE is the abbreviation for ordinary differential equations. In FCPN, we convert the model to ODEs to calculate the next step value of each input according to its current step value.
+
+Let us continue to use the water example. Since the continuous Petri net is a variant of Petri nets, the net seems exactly the same. However, since we can convert the model to ODEs, the calculation become easier. 
+
+MassAction(0.1) is used in $t0$. MassAction() is a macro that creates the rate function for a transition out of its preplaces and takes a parameter as argument. For example, assume that t0 has two preplaces p0 and p1, and the parameter k is defined. Now you can specify the rate function of t0 to obey mass/action kinetics as k*p0*p1 or MassAction(k). 
+
+Each arc has a formula associated with it. The formula is obtained by multiplying the arc weight and the transition function. If the place is the precondition of one arc, then the formula is multiplied by 1 to get the adding formula, otherwise -1. And the ODE of each place is obtained by adding the formula of arcs connected with it. Therefore, the result is shown as below. For example, the ODE of $H_2$ is $\frac{dH_2}{dt}=-2*(0.1*H_2^2*O_2)$. After setting the time step, it is easy to get the values of next step by using Runge-Kutta methods.
+\begin{table}[!hbt]
+	\begin{center}
+		\caption{ODEs of the water example}
+		\label{tab:ODEs of the water example}
+		\begin{tabular}{|c|c|}
+			\hline
+			Species&ODE\\
+			\hline
+			$H_2$&$-2*(0.1*H_2^2*O_2)$\\
+			\hline
+			$O_2$&$-1*(0.1*H_2^2*O_2)$\\
+			\hline
+			$H_2O$&$2*(0.1*H_2^2*O_2)$\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+%\comR{Please extend CPN according to
+%\url{http://www-dssz.informatik.tu-cottbus.de/publications/papers/Heiner+2008-bookchapter-levchenko-cascade.pdf}}
+
+%\comB{give the H2O example with ODEs}
+ 
+\subsection{Fuzzy logic}
+Fuzzy logic is a form of many-valued logic in which the truth values of variables may be any real number between 0 and 1. It is employed to handle the concept of partial truth, where the truth value may range between completely true and completely false. By contrast, in Boolean logic, the truth values of variables may only be the integer values 0 or 1. It is based on the observation that people make decisions based on imprecise and non-numerical information, fuzzy models or sets are mathematical means of representing vagueness and imprecise information, hence the term fuzzy. These models have the capability of recognising, representing, manipulating, interpreting, and utilising data and information that are vague and lack certainty. \cite{fuzzylogic}
+
+The process of fuzzy logic can be divided into four parts: fuzzification, fuzzy rule base, fuzzy inference engine, and defuzzification.
+
+
+%\comR{This figure should be redrawn to avoid copyright issue. Please give a similar example.}
+
+First, let me introduce the fuzzy inference. Fuzzy inference is the process of formulating the mapping from a given input to an output using fuzzy logic. The mapping then provides a basis from which decisions can be made, or patterns discerned. The process of fuzzy inference involves all the pieces that are described in Membership Functions, Logical Operations, and If-Then Rules. \cite{fip} In our system, we provide two kinds of fuzzy inference - Mamdani and T-S.
+
+
+\subsubsection{Mamdani Fuzzy Inference}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig48}
+		\caption{Block diagram of Mamdani.}
+		\label{fig:Block diagram of Mamdani}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fuzzy_logic_example}
+		\caption{An example of fuzzy logic (Mamdani).}
+		\label{fig:An example of fuzzy logic (Mamdani)}
+	\end{center}
+\end{figure}
+Mamdani fuzzy inference is the most commonly seen fuzzy methodology and was among the first control systems built using fuzzy set theory. It expects the output membership functions to be fuzzy sets. After the aggregation process, there is a fuzzy set for each output variable that needs defuzzification. \cite{mamdani}
+
+%\comR{please give a formal fuzzy inference process, consisting of fuzzification, fuzzy rule base, inference, and defuzzification, with a figure like the one given in 
+%\url{https://link.springer.com/content/pdf/10.1007\%2F978-3-319-42518-4_4.pdf}; see fig. 4.13}
+
+
+
+(1)Fuzzification
+
+Fuzzification is about to fuzzify all input values into fuzzy membership functions. 
+
+For example, in Figure \ref{fig:An example of fuzzy logic (Mamdani)}, p0 and p1 are inputs while p2 is the output. And Low, Medium, and High are three fuzzy sets. We assume that the minimum value and the maximum value of p0, p1, and p2 are both 0 and 2, respectively. After fuzzification, the fuzzy membership functions are shown as Figure \ref{fig:An example of fuzzy logic (Mamdani)} where $X$ indicates the value of the input and $\mu$ indicates the membership grade of the fuzzy set. And we have three fuzzy membership functions Low, Medium, and High in each variable.
+
+(2)Fuzzy rule base
+
+The rule base is a collection of all rules. As we can see, the uniform format of the rules is
+\begin{center}
+$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r$ IS ${B'}^r$
+\end{center}
+
+(3)Fuzzy logic operators
+
+In fuzzy logic operators, we execute all applicable rules in the rulebase to compute the fuzzy output functions as is shown in Figure \ref{fig:An example of fuzzy logic (Mamdani)}.
+
+(4)Defuzzification
+
+Defuzzification is about to de-fuzzify the fuzzy output functions to get ``crisp'' output values.
+ 
+Figure \ref{fig:An example of fuzzy logic (Mamdani)} shows the process of how to calculate the output value of p2.
+
+\clearpage
+\subsubsection{T-S Fuzzy Inference}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.5\columnwidth]{fig49}
+		\caption{Block diagram of T-S.}
+		\label{fig:Block diagram of T-S}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fuzzy_logic_example1}
+		\caption{An example of fuzzy logic (T-S).}
+		\label{fig:An example of fuzzy logic (T-S)}
+	\end{center}
+\end{figure}
+T-S can be called as Sugeno or Takagi-Sugeno-Kang. This method is similar to the Mamdani method in many respects. The first two parts of the fuzzy inference process, fuzzifying the inputs and applying the fuzzy operator, are the same. The main difference between Mamdani and Sugeno is that the Sugeno output membership functions are either linear or constant. \cite{ts}
+And the uniform format of the rules is
+\begin{center}
+	$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r=a^r_1x_1+...+a^r_nx_n+c^r$
+\end{center}
+where $a^r_i$ is $i$th coefficient in $r$th rule and $c^r$ is a constant. 
+
+Therefore, there is no need to use defuzzification in T-S. The process of calculation is shown as Figure \ref{fig:An example of fuzzy logic (T-S)}.
+%\comR{please give also an inference process with a figure}
+
+%\comB{give an exmaple too}
+
+
+
+\subsection{Fuzzy continuous Petri nets}
+Adding fuzzy logic to continuous Petri nets makes the Petri nets more powerful. For example, if we want to get the value of $H_2O$ using fuzzy logic, ODE no longer works for $H_2O$. The value of $H_2O$ is obtained by fuzzy logic. 
+
+Please note that when using fuzzy logic in fuzzy continuous Petri nets, the value we obtained is not the value of the variable, but the amount of change within the step. The change value of $H_2O$ of current time step is obtained by the values of $H_2$ and $O_2$ of previous time step. 
+
+The result might be a little different from ODE. If the values of $H_2$ and $O_2$ are down to 18 and 14, the ODE result of $H_2O$ is 12, while in fuzzy logic, the result of $H_2O$ might be 11.8. 
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.5\columnwidth]{fig50}
+		\caption{Example of fuzzy continuous Petri nets.}
+		\label{fig:Example of fuzzy continuous Petri nets}
+	\end{center}
+\end{figure}
+%\comB{give the H2O example with ODEs and FIS}
+
+
+
+\subsection{Our tool}
+
+This software provides modeling and simulation functions of fuzzy continuous Petri nets for researchers in the field of systems biology.
+
+It includes three main functions: continuous Petri net modeling, fuzzy (Mamdani \& T-S) modeling, and hybrid simulation. %Among them, the simulation is based on the transition and fire of the Petri model input by the user, and the simulation results are given.
+The aim of this software is to give an easy-to-use tool for the construction and simulation of an FCPN model.
+
+%In order to improve the user experience, we simplify the modeling page to give users a more intuitive sense of use without affecting the function during the design process. At the same time, the simulation and fuzzification are integrated in the system, so that the users' needs are satisfied as much as possible.
+
+%\begin{table}[!hbt]
+	%\begin{center}
+		%\caption{Hardware environment}
+		%\label{tab:Hardware environment}
+		%\begin{tabular}{|c|c|c|c|c|}
+			%\hline
+			%CPU &Core number&Main frequency
+			%&Memory model&Memory size\\
+			%\hline
+			%Intel core i3&4&2.8GHz
+			%&1600MHz&2GB or more\\
+			%\hline
+		%\end{tabular}
+	%\end{center}
+%\end{table}
+%Operating system: Windows
+
+We offer the Windows, Linux, and macOS(beta) versions of the software. To download the software, please follow the instruction in \href{https://github.com/liufei2016/fcpn/blob/master/README.md}{README.md} and download the corresponding version of FCPN.
+
+\subsection{Features - overview}
+Before exploring all features in detail in the following sections, we will give a brief overview for the expected features here.
+
+\subsubsection{Features for modeling}
+\begin{itemize}
+	\item Concise and efficient interface design.
+	\item Drawing of the Petri net graph as usual.
+	\item Flexible user-defined functions.
+	\item Multiple fuzzy logic choices.
+	\item Simple and fast fuzzy logic settings.
+	\item Rich shortcut settings, such as undo, redo, save, print, etc.
+\end{itemize}
+
+
+\subsubsection{Features for simulation}
+\begin{itemize}
+	\item Highly automated simulation process.
+	\item Diversified export of simulation results.
+	\item Custom simulation result drawing.
+\end{itemize}
+
+
+
+
+
+
+%Section 2
+\clearpage
+\section{Modeling}
+
+This section will present a general step-by-step procedure for how to construct an FCPN model. A simple example will be used for the illustration of the procedure.
+
+\subsection{An overview of the main interface}
+After opening the application, what we should do first is to draw an FCPN. Figure \ref{fig:Maininterface} shows the main interface of the software. 
+
+The menu bar is on the top and the tool bar is on the left, which facilitates us to create the net conveniently. The tools from top to bottom include ``new'', ``open", ``save", ``save as", ``print", ``undo", ``redo", ``delete a node", ``normal cursor", ``create a new place", ``create a new transition", ``create a new arc", and ``start simulation". 
+
+The top window is used to draw the net and the bottom window to output a log. The slider on the bottom right can be used to zoom in or zoom out a net.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig1}
+		\caption{Main interface of the software.}
+		\label{fig:Maininterface}
+	\end{center}
+\end{figure}
+
+
+
+\subsection{Draw a net}
+We can draw a net using the following steps taking Figure \ref{fig:drawnet} as an example: 
+
+\begin{itemize}
+	\item Left click the place button (the circle on the tool bar).
+	\item Put three places on the palette where you want by clicking the left mouse.
+	\item Left click the transition button(the square on the tool bar).
+	\item Put one transition on the palette where you want by clicking the left mouse.
+	\item Left click the arc button (the arrow on the tool bar).
+	\item Left click a place, press the mouse and hold, move the mouse to a transition, then release the mouse. In this way you can draw an arrow from a place to a transition.
+	\item Repeating these steps, an FCPN can be constructed; see Figure \ref{fig:drawnet}.
+\end{itemize}
+
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig2}
+		\caption{Draw the net.}
+		\label{fig:drawnet}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{Edit a place}
+We can edit a place in the following way:
+
+\begin{itemize}
+	\item Double click the place on the palette.
+	\item A window named Place Attributes (Figure \ref{fig:editplace}) will show.
+	\item Change the Name and Marking.
+	\item After editing, left click OK button.
+\end{itemize}
+
+For example, in Figure \ref{fig:drawnet}, we change the names of p0, p1, p2 to H2, O2, H2O, respectively, and change the markings of p0, p1, p2 to 30, 20, 0, respectively. Please note that the name of each place should be unique and a marking should be a non-negative real number.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig3}
+		\caption{Edit a place.}
+		\label{fig:editplace}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{Edit a transition}
+We can edit a transition in the following way:
+
+\begin{itemize}
+	\item Double click the transition on the palette.
+	\item A window named Transition Attributes (Figure \ref{fig:edittransition}) will show.
+	\item Change the Name and Function.
+	\item After editing, left click OK button.
+\end{itemize}
+
+For example, in Figure \ref{fig:drawnet}, we change the function of t0 from MassAction(1) to MassAction(0.1). Please note that the name of each transition should be different and the function should be like ``1", ``H2", ``MassAction(0)", ``MassAction(O2)", ``MassAction(H2+O2)". Remember not to change the ``MassAction(1)" to ``massaction(1)" or something like that. And do not leave the function empty. Otherwise complie error might occur.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig4}
+		\caption{Edit a ransition.}
+		\label{fig:edittransition}
+	\end{center}
+\end{figure}
+
+
+
+\subsubsection{Edit an arc}
+We can edit an arc in the following way:
+\begin{itemize}
+	\item Double click the arc on the palette.
+	\item A window named Arc Attributes (Figure \ref{fig:editarc}) will show.
+	\item Change the Expression.
+	\item After editing, left click OK button.
+\end{itemize}
+
+For example, in Figure \ref{fig:drawnet}, we change the expression of arc from p0 (H2) to t0 to 2. For the expression of arc from t0 to p2 (H2O), see next step. Please note that the expression should be like ``1", ``H2" if you don't want use fuzzy logic, and do not leave the expression empty. Otherwise complie error might occur. 
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig5}
+		\caption{Edit an arc.}
+		\label{fig:editarc}
+	\end{center}
+\end{figure}
+
+\subsubsection{Use FIS}
+FIS is the abbreviation for fuzzy inference system. We provide two kinds of FIS type: Mamdani and T-S. The steps are different between Mamdani and T-S. For example, in Figure \ref{fig:drawnet}, here are steps for using Mamdani: 
+ \begin{figure}[!hbt]
+ 	\begin{center}
+ 		\includegraphics[width=\columnwidth]{fig7}
+ 		\caption{FIS editor.}
+ 		\label{fig:FIS editor}
+ 	\end{center}
+ \end{figure}
+
+\begin{itemize}
+	\item Double click the arc from t0 to p2 (H2O).
+	\item Click the FIS editor button.
+	\item Choose Mamdani as the FIS Type.
+	\item Enter the time step and select the number of input variables.
+	\item Click the Apply button.
+	\item Choose each variable and its type in the table.
+	\item Enter the minimum change and maximum change in one step, which are corresponding to the Range-Min and Range-Max of the table.
+\end{itemize}
+
+Make sure there is only one variable whose type is PN\_OUTPUT, and it should be the variable connected by the arc you choosed. In this example, that's p2 (H2O). The values are shown in Figure \ref{fig:Edit variables}.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig8}
+		\caption{Edit variables.}
+		\label{fig:Edit variables}
+	\end{center}
+\end{figure}
+
+Now we need to edit each variable's membership functions. Here are the steps:
+\begin{itemize}
+	\item Click the Edit button on the first column.
+	\item Choose the number of linguistic variables.
+	\item Click the Apply button and the according label will show.
+	\item For each function, enter the value of left, center and right which means the x values when y is equal to 0, 1, 0, respectively.
+	\item Click the Show Plot button to see whether it is the graph you want.
+	\item Click OK button to save the change and close the window.
+	\item Repeat these steps to edit each variable.
+\end{itemize}
+
+we provide 2, 3, 5, 7 for the user to choose the number of linguistic varibles. The values are shown in Figure \ref{fig:Membership functions of H2}, \ref{fig:Membership functions of O2}, \ref{fig:Membership functions of H2O}.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{fig9}
+		\caption{Membership functions of H2.}
+		\label{fig:Membership functions of H2}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{fig9_1}
+		\caption{Membership functions of O2.}
+		\label{fig:Membership functions of O2}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{fig9_2}
+		\caption{Membership functions of H2O.}
+		\label{fig:Membership functions of H2O}
+	\end{center}
+\end{figure}
+\clearpage
+Now we should edit rules.
+\begin{itemize}
+	\item Click the Edit rules button on the center of bottom.
+	\item Select the items of a rule, and left click Add rule button to add it.
+	\item Repeat the previous step to add rules.
+	\item Click the OK button to save the changes and close the window.
+\end{itemize}
+
+We can select a row and left click Change rule button to change it to the rule you selected in the below. Choosing a row and left clicking the Delete rule button can be used to delete the rule.
+
+Make sure that the meanings of input's linguistic variables and output's linguistic variables are different. For example, as is shown in Figure \ref{fig:Edit rules}, one of the rules is - IF H2 IS Low AND O2 IS Low Then H20 IS Low. This means that the low values of H2 and O2 will cause low value change of H2O, not meaning that the value of H2O will be low.
+
+The rules are shown in Figure \ref{fig:Edit rules}.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig10}
+		\caption{Edit rules.}
+		\label{fig:Edit rules}
+	\end{center}
+\end{figure}
+
+Now left click the OK button of FIS editor and left click the OK button of arc to return to the main interface. The net should be like Figure \ref{fig:After FIS}.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig6}
+		\caption{After FIS.}
+		\label{fig:After FIS}
+	\end{center}
+\end{figure}
+\clearpage
+There are some differences between Mamdani and T-S. First, in T-S, when left clicking the Edit button of variable whose type is PN\_OUTPUT, there is no need to edit its membership functions.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.7\columnwidth]{fig11}
+		\caption{T-S FIS.}
+		\label{fig:T-S FIS}
+	\end{center}
+\end{figure}
+Second, when editing rules, the last column should be edited by the user as is shown in Figure \ref{fig:Enter rules when using T-S}. 
+
+Add rules first and then change the content of last column by double clicking the content of last column of each row and entering the formulas. Then left click OK button to save changes. 
+
+Other steps are silimar to Mamdani.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig12}
+		\caption{Enter rules when using T-S.}
+		\label{fig:Enter rules when using T-S}
+	\end{center}
+\end{figure}
+\clearpage
+
+\section{Simulation}
+After modeling, left click the ``start simulation'' button on the tool bar to use the simulation function.
+\subsection{Run simulation}
+In the simulation shown as Figure \ref{fig:Simulation}, the user can first set simulation parameters, then left click the Start Simulation button to start simulation. The settings include:
+\begin{itemize}
+	\item Setting interval start.
+	\item Setting interval start.
+	\item Choosing ODE solver.
+	\item Setting time step.
+	\item Choosing to check negative value or not.
+\end{itemize}
+
+Please make sure the time step is smaller than FISs' step size. Otherwise the result might be incorrect.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig13}
+		\caption{Simulation.}
+		\label{fig:Simulation}
+	\end{center}
+\end{figure}
+\subsection{Show simulation results}
+During simulation, the progress bar shows the progess. And the time is updated. After simulation, the graph will show. The user can zoom in or zoom out to see the details and check or uncheck the boxes on the right to show or hide the according variables.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig14}
+		\caption{Simulation result (Mamdani).}
+		\label{fig:Simulation result (Mamdani)}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig18}
+		\caption{Only show the result of O2.}
+		\label{fig:Only show the result of O2}
+	\end{center}
+\end{figure}
+
+To avoid misoperation, after entering the simulation, most of the functions in main interface such like adding items, can not be used. So if you want to be back to main interface, remember to left click ``normal cursor'' on the left tool bar. Otherwise you will find that most of the functions can't use.
+
+Actually, the user can choose to use no FIS, Mamdani, T-S, hybrid FIS to run the simulation. Therefore, let's try to use no FIS to run the simulation. 
+
+\begin{itemize}
+	\item Close the simulation window.
+	\item Left click ``normal cursor''.
+	\item Delete the FIS arc and replace it with a new arc whose expression is 2.
+	\item Start simulation again to see the result.
+\end{itemize}
+
+The result can be a little bit different, but still shows the general trend.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig15}
+		\caption{Simulation result (No FIS).}
+		\label{fig:Simulation result (No FIS)}
+	\end{center}
+\end{figure}
+
+\subsection{Export simulation results}
+The user can choose the export method and left click the Export button to export.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig19}
+		\caption{Export result.}
+		\label{fig:Export result}
+	\end{center}
+\end{figure}
+\subsection{Rich functions}
+Different tools are provided where located at the center of bottom. The user can view the Tabular to see the values of variables by left clicking the View Tabular button or edit properties by left clicking the Edit Properties.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig16}
+		\caption{View Tabular.}
+		\label{fig:View Tabular}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig17}
+		\caption{Edit properties.}
+		\label{fig:Edit properties.}
+	\end{center}
+\end{figure}
+
+
+
+
+
+\clearpage
+\section{Examples}
+In this section, we will show four examples. And we provide the file of the examples named A\_B\_C\_D where A is the name of the example, and B is the FIS type we used, and C is the interval end and D is the step size. The default interval start is 0. 
+
+Open the application and left click the ``Open'' button on the tool bar or use Cltr+O to open the file. Then you can run the simulation.
+\subsection{1D Diffusion Reaction}
+\subsubsection{Introduction}
+The first example is 1D diffusion reaction.
+\subsubsection{Model}
+The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig20}
+		\caption{The model of 1D diffusion reaction.}
+		\label{fig:The model of 1D diffusion reaction}
+	\end{center}
+\end{figure}
+\begin{table}[!hbt]
+	\begin{center}
+		\caption{Transition functions of 1D Diffusion Reaction.}
+		\label{Transition functions of 1D Diffusion Reaction}
+		\begin{tabular}{|c|c|}
+			\hline
+			Transition&Function\\
+			\hline
+			t\_1\_2&MassAction(1)\\
+			\hline
+						t\_2\_1&MassAction(1)\\
+			\hline
+						t\_2\_3&MassAction(1)\\
+			\hline
+						t\_3\_2&MassAction(1)\\
+			\hline
+						t\_3\_4&MassAction(1)\\
+			\hline
+						t\_4\_3&MassAction(1)\\
+			\hline
+						t\_4\_5&MassAction(1)\\
+			\hline
+						t\_5\_4&MassAction(1)\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{fig31}
+		\includegraphics[width=0.45\columnwidth]{fig32}
+		\caption{Membership functions of 1D Diffusion Reaction using Mamdani.}
+		\label{fig:Membership functions of 1D Diffusion Reaction using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig33}
+		\caption{Rules of 1D Diffusion Reaction using Mamdani.}
+		\label{fig:Rules of 1D Diffusion Reaction using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig34}
+		\caption{Membership functions of 1D Diffusion Reaction using T-S.}
+		\label{fig:Membership functions of 1D Diffusion Reaction using T-S.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig35}
+		\caption{Rules of 1D Diffusion Reaction using T-S.}
+		\label{fig:Rules of 1D Diffusion Reaction using T-S.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{fig36}
+		\includegraphics[width=0.45\columnwidth]{fig37}
+		\caption{Membership functions of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig38}
+		\caption{Rules of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.9\columnwidth]{fig39}
+		\caption{Membership functions of 1D Diffusion Reaction using hybrid FIS (T-S).}
+		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (T-S).}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig40}
+		\caption{Rules of 1D Diffusion Reaction using hybrid FIS (T-S).}
+		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (T-S).}
+	\end{center}
+\end{figure}
+\clearpage
+\subsubsection{Simulation result}
+In this example, we use only ODEs, Mamdani, T-S, and hybrid FIS. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using only ODEs.}.
+
+When using Mamdani, we choose to change the arc from t\_5\_4 to S\_4 to FIS. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using Mamdani.}.
+
+When using T-S, we choose to change the arc from t\_4\_5 to S\_5 to FIS. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using T-S.}.
+
+When using hybrid FIS, we choose to change the arc from t\_5\_4 to S\_4 to Mamdani and change the arc from t\_4\_5 to S\_5 to T-S. 
+The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using hybrid FIS.}.
+
+In method of only ODEs, the value of all variables eventually becomes 2 while in other three methods, the final values of the variables are not 2, but are all very close to 2. And the trends of curves are consistent.
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig21}
+		\caption{Simulation result of 1D diffusion reaction using only ODEs.}
+		\label{fig:Simulation result of 1D diffusion reaction using only ODEs.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig22}
+		\caption{Simulation result of 1D diffusion reaction using Mamdani.}
+		\label{fig:Simulation result of 1D diffusion reaction using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig23}
+		\caption{Simulation result of 1D diffusion reaction using T-S.}
+		\label{fig:Simulation result of 1D diffusion reaction using T-S.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig24}
+		\caption{Simulation result of 1D diffusion reaction using hybrid FIS.}
+		\label{fig:Simulation result of 1D diffusion reaction using hybrid FIS.}
+	\end{center}
+\end{figure}
+
+\clearpage
+\subsection{Enzyme}
+\subsubsection{Introduction}
+The second example is enzyme. Enzymes are macromolecular biological catalysts. Enzymes accelerate chemical reactions. The molecules upon which enzymes may act are called substrates and the enzyme converts the substrates into different molecules known as products. Almost all metabolic processes in the cell need enzyme catalysis in order to occur at rates fast enough to sustain life. Metabolic pathways depend upon enzymes to catalyze individual steps. \cite{enzyme}
+\subsubsection{Model}
+The model is shown as Figure \ref{fig:The model of enzyme}.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig25}
+		\caption{The model of enzyme.}
+		\label{fig:The model of enzyme}
+	\end{center}
+\end{figure}
+\begin{table}[!hbt]
+	\begin{center}
+		\caption{Transition functions of enzyme.}
+		\label{Transition functions of enzyme}
+		\begin{tabular}{|c|c|}
+			\hline
+			Transition&Function\\
+			\hline
+			Assoication&MassAction(0.1)\\
+			\hline
+			Dissociation&MassAction(0.1)\\
+			\hline
+			Synthesis&MassAction(0.1)\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{fig41}
+		\includegraphics[width=0.45\columnwidth]{fig42}
+		\caption{Membership functions of enzyme using Mamdani.}
+		\label{fig:Membership functions of enzyme using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig43}
+		\caption{Rules of enzyme using Mamdani.}
+		\label{fig:Rules of enzyme using Mamdani.}
+	\end{center}
+\end{figure}
+\subsubsection{Simulation result}
+In this example, we use only ODEs and Mamdani. The result of only ODEs is shown as Figure \ref{fig:Simulation result of enzyme using only ODEs.}.
+
+When using Mamdani, we choose to change the arc from Synthesis to Product to FIS. The result is shown as Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
+
+As we can see, the results are almost exactly the same.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig26}
+		\caption{Simulation result of enzyme using only ODEs.}
+		\label{fig:Simulation result of enzyme using only ODEs.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig27}
+		\caption{Simulation result of enzyme using Mamdani.}
+		\label{fig:Simulation result of enzyme using Mamdani.}
+	\end{center}
+\end{figure}
+
+
+
+
+
+\clearpage
+\subsection{RKIP}
+\subsubsection{Introduction}
+The third example is RKIP. The Raf kinase inhibitor protein (RKIP) is a kinase inhibitor protein, that regulates many signaling pathways within the cell. RKIP is a member of the phosphatidylethanolamine-binding protein family and has displayed disruptive regulation on the Raf-1-MEK1/2, ERK1/2 and NF-kappaB signalling pathways, by interaction with the Raf-1 kinase. \cite{rkip}
+\subsubsection{Model}
+The model is shown as Figure \ref{fig:The model of RKIP}.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig28}
+		\caption{The model of RKIP.}
+		\label{fig:The model of RKIP}
+	\end{center}
+\end{figure}
+\begin{table}[!hbt]
+	\begin{center}
+		\caption{Transition functions of RKIP.}
+		\label{Transition functions of RKIP}
+		\begin{tabular}{|c|c|}
+			\hline
+			Transition&Function\\
+			\hline
+			k1&MassAction(0.53)\\
+			\hline
+						k2&MassAction(0.0072)\\
+			\hline
+						k3&MassAction(0.625)\\
+			\hline
+						k4&MassAction(0.00245)\\
+			\hline
+						k5&MassAction(0.0315)\\
+			\hline
+						k6&MassAction(0.6)\\
+			\hline
+						k7&MassAction(0.0075)\\
+			\hline
+						k8&MassAction(0.071)\\
+			\hline
+						k9&MassAction(0.92)\\
+			\hline
+						k10&MassAction(0.00122)\\
+			\hline
+						k11&MassAction(0.87)\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{fig44}
+		\includegraphics[width=0.45\columnwidth]{fig45}
+		\caption{Membership functions of RKIP using T-S.}
+		\label{fig:Membership functions of RKIP using T-S.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig46}
+		\caption{Rules of RKIP using T-S.}
+		\label{fig:Rules of RKIP using T-S.}
+	\end{center}
+\end{figure}
+\subsubsection{Simulation result}
+In this example, we use only ODEs and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
+
+When using T-S, we choose to change the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP to FIS. The result is shown as Figure \ref{fig:Simulation result of RKIP using T-S.}.
+
+As we can see, the results are almost consisitent. Pay attention to the bold blue curves of Figure \ref{fig:Simulation result of RKIP using only ODEs.} and Figure \ref{fig:Simulation result of RKIP using T-S.}. The final result is a little different. But we can adjust the rules to get a better result.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig29}
+		\caption{Simulation result of RKIP using only ODEs.}
+		\label{fig:Simulation result of RKIP using only ODEs.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig30}
+		\caption{Simulation result of RKIP using T-S.}
+		\label{fig:Simulation result of RKIP using T-S.}
+	\end{center}
+\end{figure}
+
+
+\clearpage
+\subsection{6-MP metabolism}
+\subsubsection{Introduction}
+The last example is 6-MP metabolism. 6-Mercaptopurine (6-MP) is one of the important chemotherapy drugs used for treating acute lymphocytic leukaemia (ALL). According to the model given in \cite{lavrova2017ordinary}\cite{lavrova2016ode}, we build the FCPN.
+\subsubsection{Model}
+The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig53}
+		\caption{The model of 6-MP metabolism.}
+		\label{fig:The model of 6-MP metabolism}
+	\end{center}
+\end{figure}
+\begin{table}[!hbt]
+	\begin{center}
+		\caption{Transition functions of 6-MP metabolism.}
+		\label{Transition functions of 6-MP metabolism}
+		\begin{tabular}{|c|c|}
+			\hline
+			Transition&Function\\
+			\hline
+			k0&MassAction(5)\\
+			\hline
+			k1&MassAction(10)\\
+			\hline
+			k\_1&MassAction(0.01)\\
+			\hline
+			k2&MassAction(10)\\
+			\hline
+			k\_2&MassAction(4)\\
+			\hline
+			k3&MassAction(5)\\
+			\hline
+			k\_3&MassAction(0.01)\\
+			\hline
+			k4&MassAction(0.00001)\\
+			\hline
+			k\_4&MassAction(0.1)\\
+			\hline
+			k7&MassAction(0.01)\\
+			\hline
+			k\_7&MassAction(1)\\
+			\hline
+			k8&MassAction(0.5)\\
+			\hline
+			k\_8&MassAction(0.01)\\
+			\hline
+			VPUR&MassAction(0.01)\\
+			\hline
+			VD&MassAction(0.9)\\
+			\hline
+			VOUT&MassAction(0.0001)\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.45\columnwidth]{fig57}
+		\includegraphics[width=0.45\columnwidth]{fig58}
+		\caption{Membership functions of 6-MP metabolism using Mamdani.}
+		\label{fig:Membership functions of 6-MP metabolism using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig59}
+		\caption{Rules of 6-MP metabolism using Mamdani.}
+		\label{fig:Rules of 6-MP metabolism using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig57}
+		\caption{Membership functions of 6-MP metabolism using T-S.}
+		\label{fig:Membership functions of 6-MP metabolism using T-S.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig60}
+		\caption{Rules of 6-MP metabolism using T-S.}
+		\label{fig:Rules of 6-MP metabolism using T-S.}
+	\end{center}
+\end{figure}
+\subsubsection{Simulation result}
+In this example, we use only ODEs, Mamdani, and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
+
+When using Mamdani, we choose to change the arc from k0 to MPin to FIS. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using Mamdani.}.
+
+When using T-S, we choose to change the arc from k0 to MPin to FIS. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
+
+As we can see, the results are almost exactly the same.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig54}
+		\caption{Simulation result of 6-MP metabolism using only ODEs.}
+		\label{fig:Simulation result of 6-MP metabolism using only ODEs.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig55}
+		\caption{Simulation result of 6-MP metabolism using Mamdani.}
+		\label{fig:Simulation result of 6-MP metabolism using Mamdani.}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig56}
+		\caption{Simulation result of 6-MP metabolism using T-S.}
+		\label{fig:Simulation result of 6-MP metabolism using T-S.}
+	\end{center}
+\end{figure}
+
+\clearpage
+%\section{References}
+\bibliographystyle{unsrt}
+
+\bibliography{ref} 
+%\noindent
+%[1] Petri net: \url{https://en.wikipedia.org/wiki/Petri_net}\newline
+%[2] Fuzzy logic: \url{https://en.wikipedia.org/wiki/Fuzzy_logic}\newline
+%[3] Fuzzy Inference Process: \url{https://www.mathworks.com/help/fuzzy/fuzzy-inference-process.html}\newline
+%[4] Mamdani-Type Fuzzy Inference: \url{https://www.mathworks.com/help/fuzzy/what-is-mamdani-type-fuzzy-inference.html}\newline
+%[5] Sugeno-Type Fuzzy Inference: \url{https://www.mathworks.com/help/fuzzy/what-is-sugeno-type-fuzzy-inference.html}\newline
+%[6] Enzyme: \url{https://en.wikipedia.org/wiki/Enzyme}\newline
+%[7] Raf kinase inhibitor protein: \url{https://en.wikipedia.org/wiki/Raf_kinase_inhibitor_protein}
+
+
+
+
+
+
+\end{document}
+
