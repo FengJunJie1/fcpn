@@ -39,156 +39,147 @@
 
 \section{Introduction}
 
-Systems biology % \citep{Kit02, Ade05}
-aims to study the interactions between the components of a biological system and how these interactions cause the behaviour of the system as a whole. Modelling and simulation plays an essential role in the study of systems biology by employing the data to build mathematical or computational models of a biological system, which help biologists to better understand and predict the system. However, the complexity of biological systems gives rise to a number of modelling challenges, one of which is uncertainty. %\cite{GRH00}
-
+Systems biology \cite{Kit02}
+aims to study the interactions between the components of a biological system and how these interactions cause the behaviour of the system as a whole. Modelling and simulation plays an essential role in the study of systems biology by employing the data to build mathematical or computational models of a biological system, which help biologists to better understand and predict the system. However, the complexity of biological systems gives rise to a number of modelling challenges, one of which is uncertainty \cite{GRH00}.
 The uncertainty further constitutes the structural uncertainty and parametric uncertainty for a biological model.
 
-On the other hand, continuous Petri nets (CPNs) offer a graphical way to represent systems of ordinary differential equations (ODEs). %\cite{BGH+08}
-In a CPN model, places take real-valued tokens to represent the concentration of species, while transitions represent continuous changes of concentrations. 
+In the deterministic quantitative modeling aspect, continuous Petri nets (CPNs) \cite{BGH+08} offer a graphical way to represent systems of ordinary differential equations (ODEs). In a CPN model, places take real-valued tokens to represent the concentration of species, while transitions represent continuous changes of concentrations. However, neither ODEs or CPNs can address the uncertainty modeling issue.
 
-By adding fuzzy rules to CPNs, we further obtain fuzzy continuous Petri nets (FCPNs). Therefore an FCPN model can be divided into two parts: the certain ODE part and the uncertain fuzzy logic part, thus achieving the modeling of a biological system where we have sufficient data for some components but insufficient information for others.
+By combining fuzzy inference systems \cite{Zad65,WRK07} with CPNs, we further obtain fuzzy continuous Petri nets (FCPNs), which achieve the uncertainty modeling capability from fuzzy logic.
+FCPNs lie in the second category of fuzzy Petri nets, given in \cite{LHG18}. Therefore an FCPN model can be divided into two parts: the certain ODE part and the uncertain fuzzy reasoning part, thus achieving the modeling of a biological system where we have sufficient data for some components but insufficient information for others.
+
 
 \subsection{Petri nets}
-Petri nets provide a formal and graphical representation of systems based on their firm mathematical foundation for the analysis of system properties. 
+Petri nets \cite{Mur89} provide a formal and graphical representation of systems based on their firm mathematical foundation for the analysis of system properties. 
+Petri nets are one of several mathematical modeling languages for the description of distributed systems. 
+A Petri net is a directed bipartite graph, in which the nodes represent transitions (i.e. events that may occur, represented by bars) and places (i.e. conditions, represented by circles). The directed arcs describe the flow of places to transitions or vice versa. No arc is allowed between two places or two transitions. Each arc has its own weight, and the default value is 1.
 
-A Petri net, also known as a place/transition (PT) net, is one of several mathematical modeling languages for the description of distributed systems. It is a class of discrete event dynamic system. A Petri net is a directed bipartite graph, in which the nodes represent transitions (i.e. events that may occur, represented by bars) and places (i.e. conditions, represented by circles). The directed arcs describe which places are pre- and/or postconditions for which transitions (signified by arrows). \cite{petrinet} No arc is allowed between the two places or transitions. Each arc has its own weight, and the default value is 1.
+Let's take the well-known chemical reaction, $2H_2+O_2\to 2H_2O$, as an example \cite{Mur89} to illustrate Petri nets, which is shown in Figure \ref{fig:PNexample}. Circles named $H_2$, $O_2$, and $H_2O$ are places, while the square named $t$ is a transition. 
+$H_2$ and $O_2$ are preconditions for $t$ while $H_2O$ is the postcondition for $t$. The tokens of $H_2$, $O_2$, and $H_2O$ are set to 30, 20, and 0, respectively. 
 
-Let's take the reaction $2H_2+O_2\to 2H_2O$ for example. The Petri nets of the it is shown as Figure 1. Circles named $H_2$, $O_2$, and $H_2O$ are places while the square named $t_0$ is the transition. As we can see, $H_2$ and $O_2$ are preconditions for $t_0$ while $H_2O$ is the postcondition for $t_0$. The tokens of $H_2$, $O_2$, and $H_2O$ are 30, 20, and 0, respectively. So this Petri net can be interpreted as: 2 parts $H_2$ and 1 part $O_2$ participate in the reaction, which produces 2 parts $H_2O$. And the initial parts of $H_2$, $O_2$, and $H_2O$ are 30, 20, and 0, respectively.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.5\columnwidth]{fig47}
-		\caption{Example of Petri nets.}
-		\label{fig:Example of Petri nets}
+		\caption{A Petri net example that models the chemical reaction, $2H_2+O_2\to 2H_2O$.}
+		\label{fig:PNexample}
 	\end{center}
 \end{figure}
 
-%\comR{Please extend this according to
-%\url{http://www-dssz.informatik.tu-cottbus.de/publications/papers/Heiner+2008-bookchapter-levchenko-cascade.pdf}}
 
-%\comB{give the H2O example}
 
 \subsection{Continuous Petri nets}
 
-A continuous Petri net is a variant of Petri nets. In this model, the values identified in each place are non-negative real values (no longer required to be non-negative integer values), and the conditions and results of the transitions are also changed accordingly: the occurrences are positive real values.
+A continuous Petri net (CPN) \cite{BGH+08} is a variant of Petri nets. In a CPN model, the values identified on places are non-negative real values (no longer required to be non-negative integer values), which usually model the concentrations of species.
+In fact, a CPN offer a graphical representation of a system of ODEs.
 
-ODE is the abbreviation for ordinary differential equations. In FCPN, we convert the model to ODEs to calculate the next step value of each input according to its current step value.
+Let us continue to use the chemical reaction, $2H_2+O_2\to 2H_2O$ as an example to illustrate CPNs. The structure of the CPN model is exactly like the one given in Figure \ref{fig:PNexample}. Besides, we associate a kinetic rate, e.g., 0.1, with the transition $t$ by adopting a mass action law, represented as MassAction(0.1).
+Here MassAction() is a macro that generates the rate function of a transition using its preplaces and taking a parameter as its argument. For example, MassAction(0.1) for transition $t$ generates a rate function, $0.1*H_2^{2}*O_2$. 
+The set of ODEs underlying the CPN model given in Figure \ref{fig:PNexample} is shown in Table \ref{tab:ODEs-PN}.
 
-Let us continue to use the water example. Since the continuous Petri net is a variant of Petri nets, the net seems exactly the same. However, since we can convert the model to ODEs, the calculation become easier. 
 
-MassAction(0.1) is used in $t0$. MassAction() is a macro that creates the rate function for a transition out of its preplaces and takes a parameter as argument. For example, assume that t0 has two preplaces p0 and p1, and the parameter k is defined. Now you can specify the rate function of t0 to obey mass/action kinetics as k*p0*p1 or MassAction(k). 
-
-Each arc has a formula associated with it. The formula is obtained by multiplying the arc weight and the transition function. If the place is the precondition of one arc, then the formula is multiplied by 1 to get the adding formula, otherwise -1. And the ODE of each place is obtained by adding the formula of arcs connected with it. Therefore, the result is shown as below. For example, the ODE of $H_2$ is $\frac{dH_2}{dt}=-2*(0.1*H_2^2*O_2)$. After setting the time step, it is easy to get the values of next step by using Runge-Kutta methods.
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{ODEs of the water example}
-		\label{tab:ODEs of the water example}
+		\caption{ODEs of the CPN model given in Figure \ref{fig:PNexample}.}
+		\label{tab:ODEs-PN}
 		\begin{tabular}{|c|c|}
 			\hline
 			Species&ODE\\
 			\hline
-			$H_2$&$-2*(0.1*H_2^2*O_2)$\\
+			$H_2$&$dH_2/dt=-2*(0.1*H_2^2*O_2)$\\
 			\hline
-			$O_2$&$-1*(0.1*H_2^2*O_2)$\\
+			$O_2$&$dO_2/dt=-1*(0.1*H_2^2*O_2)$\\
 			\hline
-			$H_2O$&$2*(0.1*H_2^2*O_2)$\\
+			$H_2O$&$dH_2O/dt=2*(0.1*H_2^2*O_2)$\\
 			\hline
 		\end{tabular}
 	\end{center}
 \end{table}
-%\comR{Please extend CPN according to
-%\url{http://www-dssz.informatik.tu-cottbus.de/publications/papers/Heiner+2008-bookchapter-levchenko-cascade.pdf}}
 
-%\comB{give the H2O example with ODEs}
- 
+
 \subsection{Fuzzy logic}
-Fuzzy logic is a form of many-valued logic in which the truth values of variables may be any real number between 0 and 1. It is employed to handle the concept of partial truth, where the truth value may range between completely true and completely false. By contrast, in Boolean logic, the truth values of variables may only be the integer values 0 or 1. It is based on the observation that people make decisions based on imprecise and non-numerical information, fuzzy models or sets are mathematical means of representing vagueness and imprecise information, hence the term fuzzy. These models have the capability of recognising, representing, manipulating, interpreting, and utilising data and information that are vague and lack certainty. \cite{fuzzylogic}
+Fuzzy logic \cite{Zad65,WRK07} is a form of many-valued logic in which the truth values of variables may be any real number between 0 and 1. It is employed to handle the concept of partial truth, where the truth value may range between completely true and completely false. By contrast, in Boolean logic, the truth values of variables may only be the integer values 0 or 1. Fuzzy logic is based on the observation that people make decisions based on imprecise and non-numerical information, and fuzzy sets are mathematical means of representing vagueness and imprecise information. 
 
-The process of fuzzy logic can be divided into four parts: fuzzification, fuzzy rule base, fuzzy inference engine, and defuzzification.
+Two widely used fuzzy inference systems are Mamdani and T-S inference systems.
+In the following, we will briefly introduce these two systems.
 
 
-%\comR{This figure should be redrawn to avoid copyright issue. Please give a similar example.}
 
-First, let me introduce the fuzzy inference. Fuzzy inference is the process of formulating the mapping from a given input to an output using fuzzy logic. The mapping then provides a basis from which decisions can be made, or patterns discerned. The process of fuzzy inference involves all the pieces that are described in Membership Functions, Logical Operations, and If-Then Rules. \cite{fip} In our system, we provide two kinds of fuzzy inference - Mamdani and T-S.
 
+\subsubsection{Mamdani fuzzy inference}
+Mamdani fuzzy inference \cite{Mamdani74} is one of the most commonly used fuzzy inference systems and was among the first control systems built using fuzzy set theory. It expects the output membership functions to be fuzzy sets, which are then defuzzified to obtain crisp output values. The diagram of the Mamdani fuzzy inference system is shown in Figure \ref{fig:diagram-Mamdani}, which involves the following four components: fuzzification, fuzzy rule base, fuzzy inference engine and defuzzification. An example is also given in Figure \ref{fig:example -Mamdani} to illustrate the reasoning process of the Mamdani fuzzy inference system.
 
 \subsubsection{Mamdani Fuzzy Inference}
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig48}
-		\caption{Block diagram of Mamdani.}
-		\label{fig:Block diagram of Mamdani}
+		\caption{Diagram of the Mamdani fuzzy inference system.}
+		\label{fig:diagram-Mamdani}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fuzzy_logic_example}
-		\caption{An example of fuzzy logic (Mamdani).}
-		\label{fig:An example of fuzzy logic (Mamdani)}
+		\caption{An example of the Mamdani fuzzy inference system.}
+		\label{fig:example -Mamdani}
 	\end{center}
 \end{figure}
-Mamdani fuzzy inference is the most commonly seen fuzzy methodology and was among the first control systems built using fuzzy set theory. It expects the output membership functions to be fuzzy sets. After the aggregation process, there is a fuzzy set for each output variable that needs defuzzification. \cite{mamdani}
-
-%\comR{please give a formal fuzzy inference process, consisting of fuzzification, fuzzy rule base, inference, and defuzzification, with a figure like the one given in 
-%\url{https://link.springer.com/content/pdf/10.1007\%2F978-3-319-42518-4_4.pdf}; see fig. 4.13}
-
-
 
 (1)Fuzzification
-
-Fuzzification is about to fuzzify all input values into fuzzy membership functions. 
-
-For example, in Figure \ref{fig:An example of fuzzy logic (Mamdani)}, p0 and p1 are inputs while p2 is the output. And Low, Medium, and High are three fuzzy sets. We assume that the minimum value and the maximum value of p0, p1, and p2 are both 0 and 2, respectively. After fuzzification, the fuzzy membership functions are shown as Figure \ref{fig:An example of fuzzy logic (Mamdani)} where $X$ indicates the value of the input and $\mu$ indicates the membership grade of the fuzzy set. And we have three fuzzy membership functions Low, Medium, and High in each variable.
+Fuzzification is used to fuzzify crisp input values into fuzzy values according to predefined membership functions for input variables. 
+For example, for the model given in Figure \ref{fig:example -Mamdani}(a), p0 and p1 are inputs while p2 is the output. Three linguistic terms, Low, Medium and High, each taking a triangular fuzzy number, are defined for p0 to p2 (see Figure \ref{fig:example -Mamdani}(b)). We assume that the minimum and maximum values of p0, p1 and p2 are 0 and 2, respectively. In the fuzzy membership functions shown in Figure \ref{fig:example -Mamdani}(b), $X$ indicates the value of each input and $\mu$ indicates the membership grade of the fuzzy set.
 
 (2)Fuzzy rule base
-
-The rule base is a collection of all rules. As we can see, the uniform format of the rules is
+The rule base is a collection of fuzzy rules that are defined for a specific application. 
+For example, for the model given in Figure \ref{fig:example -Mamdani}(a), we can define the fuzzy rules given in Figure \ref{fig:example -Mamdani}(c).
+A uniform format of the rules is:
 \begin{center}
-$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r$ IS ${B'}^r$
+$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r$ IS ${B'}^r$.
 \end{center}
 
-(3)Fuzzy logic operators
-
-In fuzzy logic operators, we execute all applicable rules in the rulebase to compute the fuzzy output functions as is shown in Figure \ref{fig:An example of fuzzy logic (Mamdani)}.
+(3)Fuzzy inference engine
+Fuzzy inference engine is used to execute all applicable rules in the rule base to compute the fuzzy output values.
+A detailed reasoning example is given in Figure \ref{fig:example -Mamdani}(d).
 
 (4)Defuzzification
-
-Defuzzification is about to de-fuzzify the fuzzy output functions to get ``crisp'' output values.
+Defuzzification is used to defuzzify the fuzzy output values to get ``crisp'' output values.
+See an example in Figure \ref{fig:example -Mamdani}(e).
  
-Figure \ref{fig:An example of fuzzy logic (Mamdani)} shows the process of how to calculate the output value of p2.
+
+
 
 \clearpage
 \subsubsection{T-S Fuzzy Inference}
-\begin{figure}[!hbt]
-	\begin{center}
-		\includegraphics[width=0.5\columnwidth]{fig49}
-		\caption{Block diagram of T-S.}
-		\label{fig:Block diagram of T-S}
-	\end{center}
-\end{figure}
-\begin{figure}[!hbt]
-	\begin{center}
-		\includegraphics[width=\columnwidth]{fuzzy_logic_example1}
-		\caption{An example of fuzzy logic (T-S).}
-		\label{fig:An example of fuzzy logic (T-S)}
-	\end{center}
-\end{figure}
-T-S can be called as Sugeno or Takagi-Sugeno-Kang. This method is similar to the Mamdani method in many respects. The first two parts of the fuzzy inference process, fuzzifying the inputs and applying the fuzzy operator, are the same. The main difference between Mamdani and Sugeno is that the Sugeno output membership functions are either linear or constant. \cite{ts}
-And the uniform format of the rules is
+
+T-S fuzzy inference \cite{TS85} is also called Sugeno or Takagi-Sugeno-Kang fuzzy inference. This method is similar to the Mamdani one except the difference that the T-S' outputs are either crisp linear expressions or constants rather than fuzzy values. 
+The uniform format of the T-S rules is
 \begin{center}
-	$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r=a^r_1x_1+...+a^r_nx_n+c^r$
+	$r^r$: IF $x_1$ IS $A^r_1$ AND ... AND IF $x_n$ IS $A^r_n$ THEN $y^r=a^r_1x_1+...+a^r_nx_n+c^r$.
 \end{center}
 where $a^r_i$ is $i$th coefficient in $r$th rule and $c^r$ is a constant. 
 
-Therefore, there is no need to use defuzzification in T-S. The process of calculation is shown as Figure \ref{fig:An example of fuzzy logic (T-S)}.
-%\comR{please give also an inference process with a figure}
+The process of the T-S fuzzy inference system is shown in Figure \ref{fig:diagram-T-S}, which involves three components: fuzzification, fuzzy rule base, and fuzzy inference engine. An example is also given in Figure \ref{fig:example-T-S} to illustrate the reasoning process of the T-S fuzzy inference system.
 
-%\comB{give an exmaple too}
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=0.5\columnwidth]{fig49}
+		\caption{Diagram of the T-S fuzzy inference system.}
+		\label{fig:diagram-T-S}
+	\end{center}
+\end{figure}
+
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fuzzy_logic_example1}
+		\caption{An example of the T-S fuzzy inference system.}
+		\label{fig:example-T-S}
+	\end{center}
+\end{figure}
 
 
 
 \subsection{Fuzzy continuous Petri nets}
-Adding fuzzy logic to continuous Petri nets makes the Petri nets more powerful. For example, if we want to get the value of $H_2O$ using fuzzy logic, ODE no longer works for $H_2O$. The value of $H_2O$ is obtained by fuzzy logic. 
+Adding fuzzy logic to continuous Petri nets gets fuzzy continuous Petri nets \cite{LHG18}, which make the Petri nets more powerful. For example, if we want to get the value of $H_2O$ using fuzzy logic, but ODE no longer works for $H_2O$, then the value of $H_2O$ can be obtained by fuzzy logic. 
 
 Please note that when using fuzzy logic in fuzzy continuous Petri nets, the value we obtained is not the value of the variable, but the amount of change within the step. The change value of $H_2O$ of current time step is obtained by the values of $H_2$ and $O_2$ of previous time step. 
 
@@ -200,37 +191,17 @@ The result might be a little different from ODE. If the values of $H_2$ and $O_2
 		\label{fig:Example of fuzzy continuous Petri nets}
 	\end{center}
 \end{figure}
-%\comB{give the H2O example with ODEs and FIS}
-
 
 
 \subsection{Our tool}
 
 This software provides modeling and simulation functions of fuzzy continuous Petri nets for researchers in the field of systems biology.
 
-It includes three main functions: continuous Petri net modeling, fuzzy (Mamdani \& T-S) modeling, and hybrid simulation. %Among them, the simulation is based on the transition and fire of the Petri model input by the user, and the simulation results are given.
+It includes three main functions: continuous Petri net modeling, fuzzy (Mamdani \& T-S) modeling, and hybrid simulation. 
 The aim of this software is to give an easy-to-use tool for the construction and simulation of an FCPN model.
 
-%In order to improve the user experience, we simplify the modeling page to give users a more intuitive sense of use without affecting the function during the design process. At the same time, the simulation and fuzzification are integrated in the system, so that the users' needs are satisfied as much as possible.
 
-%\begin{table}[!hbt]
-	%\begin{center}
-		%\caption{Hardware environment}
-		%\label{tab:Hardware environment}
-		%\begin{tabular}{|c|c|c|c|c|}
-			%\hline
-			%CPU &Core number&Main frequency
-			%&Memory model&Memory size\\
-			%\hline
-			%Intel core i3&4&2.8GHz
-			%&1600MHz&2GB or more\\
-			%\hline
-		%\end{tabular}
-	%\end{center}
-%\end{table}
-%Operating system: Windows
-
-We offer the Windows, Linux, and macOS(beta) versions of the software. To download the software, please follow the instruction in \href{https://github.com/liufei2016/fcpn/blob/master/README.md}{README.md} and download the corresponding version of FCPN.
+We offer the Windows, Linux, and macOS(beta) versions of the software. To use the software, please follow the instruction in \href{https://github.com/liufei2016/fcpn/blob/master/README.md}{README.md} and download the corresponding version of FCPN tool.
 
 \subsection{Features - overview}
 Before exploring all features in detail in the following sections, we will give a brief overview for the expected features here.
@@ -262,7 +233,7 @@ Before exploring all features in detail in the following sections, we will give 
 \clearpage
 \section{Modeling}
 
-This section will present a general step-by-step procedure for how to construct an FCPN model. A simple example will be used for the illustration of the procedure.
+This section will present a general step-by-step procedure for how to construct an FCPN model. We will take the chemical reaction $2H_2+O_2\to 2H_2O$ as an example \cite{Mur89} for the illustration of the procedure.
 
 \subsection{An overview of the main interface}
 After opening the application, what we should do first is to draw an FCPN. Figure \ref{fig:Maininterface} shows the main interface of the software. 
@@ -581,9 +552,12 @@ Different tools are provided where located at the center of bottom. The user can
 In this section, we will show four examples. And we provide the file of the examples named A\_B\_C\_D where A is the name of the example, and B is the FIS type we used, and C is the interval end and D is the step size. The default interval start is 0. 
 
 Open the application and left click the ``Open'' button on the tool bar or use Cltr+O to open the file. Then you can run the simulation.
+
 \subsection{1D Diffusion Reaction}
+
 \subsubsection{Introduction}
-The first example is 1D diffusion reaction.
+The first example is one-dimensional (1D) diffusion reaction \cite{LBHY14}, which describes a species diffusing into one of its neighbour cells in a 1D grid.
+
 \subsubsection{Model}
 The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
@@ -593,6 +567,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:The model of 1D diffusion reaction}
 	\end{center}
 \end{figure}
+
 \begin{table}[!hbt]
 	\begin{center}
 		\caption{Transition functions of 1D Diffusion Reaction.}
@@ -620,6 +595,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\end{tabular}
 	\end{center}
 \end{table}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig31}
@@ -628,6 +604,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Membership functions of 1D Diffusion Reaction using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig33}
@@ -635,6 +612,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Rules of 1D Diffusion Reaction using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig34}
@@ -642,6 +620,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Membership functions of 1D Diffusion Reaction using T-S.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig35}
@@ -649,6 +628,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Rules of 1D Diffusion Reaction using T-S.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig36}
@@ -657,6 +637,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig38}
@@ -664,6 +645,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.9\columnwidth]{fig39}
@@ -671,6 +653,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (T-S).}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig40}
@@ -678,6 +661,8 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (T-S).}
 	\end{center}
 \end{figure}
+
+
 \clearpage
 \subsubsection{Simulation result}
 In this example, we use only ODEs, Mamdani, T-S, and hybrid FIS. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using only ODEs.}.
@@ -698,6 +683,7 @@ In method of only ODEs, the value of all variables eventually becomes 2 while in
 		\label{fig:Simulation result of 1D diffusion reaction using only ODEs.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig22}
@@ -705,6 +691,7 @@ In method of only ODEs, the value of all variables eventually becomes 2 while in
 		\label{fig:Simulation result of 1D diffusion reaction using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig23}
@@ -712,6 +699,7 @@ In method of only ODEs, the value of all variables eventually becomes 2 while in
 		\label{fig:Simulation result of 1D diffusion reaction using T-S.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig24}
@@ -720,22 +708,28 @@ In method of only ODEs, the value of all variables eventually becomes 2 while in
 	\end{center}
 \end{figure}
 
+
+
 \clearpage
-\subsection{Enzyme}
+\subsection{Enzymatic reaction}
+
 \subsubsection{Introduction}
-The second example is enzyme. Enzymes are macromolecular biological catalysts. Enzymes accelerate chemical reactions. The molecules upon which enzymes may act are called substrates and the enzyme converts the substrates into different molecules known as products. Almost all metabolic processes in the cell need enzyme catalysis in order to occur at rates fast enough to sustain life. Metabolic pathways depend upon enzymes to catalyze individual steps. \cite{enzyme}
+The second example is enzymatic reaction \cite{BHM11}. Enzymes are macromolecular biological catalysts, which can accelerate chemical reactions. The molecules upon which enzymes may act are called substrates and the enzyme converts the substrates into different molecules, known as products. Almost all metabolic processes in a cell need enzyme catalysis in order to occur at rates fast enough to sustain life. Metabolic pathways depend upon enzymes to catalyze individual steps. 
+
 \subsubsection{Model}
 The model is shown as Figure \ref{fig:The model of enzyme}.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig25}
-		\caption{The model of enzyme.}
+		\caption{The model of enzymatic reaction.}
 		\label{fig:The model of enzyme}
 	\end{center}
 \end{figure}
+
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{Transition functions of enzyme.}
+		\caption{Transition functions of enzymatic reaction.}
 		\label{Transition functions of enzyme}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -750,38 +744,43 @@ The model is shown as Figure \ref{fig:The model of enzyme}.
 		\end{tabular}
 	\end{center}
 \end{table}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig41}
 		\includegraphics[width=0.45\columnwidth]{fig42}
-		\caption{Membership functions of enzyme using Mamdani.}
+		\caption{Membership functions of enzymatic reaction using Mamdani.}
 		\label{fig:Membership functions of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig43}
-		\caption{Rules of enzyme using Mamdani.}
+		\caption{Rules of enzymatic reaction using Mamdani.}
 		\label{fig:Rules of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
+
 \subsubsection{Simulation result}
 In this example, we use only ODEs and Mamdani. The result of only ODEs is shown as Figure \ref{fig:Simulation result of enzyme using only ODEs.}.
 
 When using Mamdani, we choose to change the arc from Synthesis to Product to FIS. The result is shown as Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
 
-As we can see, the results are almost exactly the same.
+As we can see, the results are almost the same.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig26}
-		\caption{Simulation result of enzyme using only ODEs.}
+		\caption{Simulation result of enzymatic reaction using only ODEs.}
 		\label{fig:Simulation result of enzyme using only ODEs.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig27}
-		\caption{Simulation result of enzyme using Mamdani.}
+		\caption{Simulation result of enzymatic reaction using Mamdani.}
 		\label{fig:Simulation result of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
@@ -791,11 +790,15 @@ As we can see, the results are almost exactly the same.
 
 
 \clearpage
-\subsection{RKIP}
+\subsection{RKIP pathway}
+
 \subsubsection{Introduction}
-The third example is RKIP. The Raf kinase inhibitor protein (RKIP) is a kinase inhibitor protein, that regulates many signaling pathways within the cell. RKIP is a member of the phosphatidylethanolamine-binding protein family and has displayed disruptive regulation on the Raf-1-MEK1/2, ERK1/2 and NF-kappaB signalling pathways, by interaction with the Raf-1 kinase. \cite{rkip}
+
+The Raf kinase inhibitor protein (RKIP) \cite{CSK+03} is a kinase inhibitor protein that regulates many signaling pathways within the cell. RKIP is a member of the phosphatidylethanolamine-binding protein family and has displayed disruptive regulation on the Raf-1-MEK1/2, ERK1/2 and NF-kappaB signalling pathways, by interaction with the Raf-1 kinase. 
+
 \subsubsection{Model}
-The model is shown as Figure \ref{fig:The model of RKIP}.
+The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model given in \cite{GH06}.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig28}
@@ -803,6 +806,7 @@ The model is shown as Figure \ref{fig:The model of RKIP}.
 		\label{fig:The model of RKIP}
 	\end{center}
 \end{figure}
+
 \begin{table}[!hbt]
 	\begin{center}
 		\caption{Transition functions of RKIP.}
@@ -836,6 +840,7 @@ The model is shown as Figure \ref{fig:The model of RKIP}.
 		\end{tabular}
 	\end{center}
 \end{table}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig44}
@@ -844,6 +849,7 @@ The model is shown as Figure \ref{fig:The model of RKIP}.
 		\label{fig:Membership functions of RKIP using T-S.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig46}
@@ -851,12 +857,15 @@ The model is shown as Figure \ref{fig:The model of RKIP}.
 		\label{fig:Rules of RKIP using T-S.}
 	\end{center}
 \end{figure}
+
+
 \subsubsection{Simulation result}
 In this example, we use only ODEs and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
 
 When using T-S, we choose to change the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP to FIS. The result is shown as Figure \ref{fig:Simulation result of RKIP using T-S.}.
 
 As we can see, the results are almost consisitent. Pay attention to the bold blue curves of Figure \ref{fig:Simulation result of RKIP using only ODEs.} and Figure \ref{fig:Simulation result of RKIP using T-S.}. The final result is a little different. But we can adjust the rules to get a better result.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig29}
@@ -864,6 +873,7 @@ As we can see, the results are almost consisitent. Pay attention to the bold blu
 		\label{fig:Simulation result of RKIP using only ODEs.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig30}
@@ -873,12 +883,17 @@ As we can see, the results are almost consisitent. Pay attention to the bold blu
 \end{figure}
 
 
+
+
+
 \clearpage
-\subsection{6-MP metabolism}
+\subsection{6-mercaptopurine metabolism}
 \subsubsection{Introduction}
-The last example is 6-MP metabolism. 6-Mercaptopurine (6-MP) is one of the important chemotherapy drugs used for treating acute lymphocytic leukaemia (ALL). According to the model given in \cite{lavrova2017ordinary}\cite{lavrova2016ode}, we build the FCPN.
+6-Mercaptopurine (6-MP) is one of the important chemotherapy drugs used for treating acute lymphocytic leukaemia (ALL). According to the model given in \cite{lavrova2017ordinary,lavrova2016ode}, we build the FCPN model of the 6-mercaptopurine metabolism.
+
 \subsubsection{Model}
 The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig53}
@@ -886,6 +901,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 		\label{fig:The model of 6-MP metabolism}
 	\end{center}
 \end{figure}
+
 \begin{table}[!hbt]
 	\begin{center}
 		\caption{Transition functions of 6-MP metabolism.}
@@ -930,6 +946,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 	\end{center}
 \end{table}
 
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig57}
@@ -938,6 +955,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 		\label{fig:Membership functions of 6-MP metabolism using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig59}
@@ -952,6 +970,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 		\label{fig:Membership functions of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig60}
@@ -959,6 +978,8 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 		\label{fig:Rules of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
+
+
 \subsubsection{Simulation result}
 In this example, we use only ODEs, Mamdani, and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
 
@@ -966,7 +987,8 @@ When using Mamdani, we choose to change the arc from k0 to MPin to FIS. The resu
 
 When using T-S, we choose to change the arc from k0 to MPin to FIS. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
 
-As we can see, the results are almost exactly the same.
+As we can see, the results are almost the same.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig54}
@@ -974,6 +996,7 @@ As we can see, the results are almost exactly the same.
 		\label{fig:Simulation result of 6-MP metabolism using only ODEs.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig55}
@@ -981,6 +1004,7 @@ As we can see, the results are almost exactly the same.
 		\label{fig:Simulation result of 6-MP metabolism using Mamdani.}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig56}
@@ -988,6 +1012,7 @@ As we can see, the results are almost exactly the same.
 		\label{fig:Simulation result of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
+
 
 \clearpage
 %\section{References}
@@ -1002,9 +1027,6 @@ As we can see, the results are almost exactly the same.
 %[5] Sugeno-Type Fuzzy Inference: \url{https://www.mathworks.com/help/fuzzy/what-is-sugeno-type-fuzzy-inference.html}\newline
 %[6] Enzyme: \url{https://en.wikipedia.org/wiki/Enzyme}\newline
 %[7] Raf kinase inhibitor protein: \url{https://en.wikipedia.org/wiki/Raf_kinase_inhibitor_protein}
-
-
-
 
 
 

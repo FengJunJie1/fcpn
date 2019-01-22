@@ -1,42 +1,86 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{petrinet}
-Petri net.
-\newblock \url{https://en.wikipedia.org/wiki/Petri_net}.
-\newblock Accessed: 2018-09-29.
+\bibitem{Kit02}
+H~Kitano.
+\newblock Systems biology: A brief overview.
+\newblock {\em Science}, 295(5560):1662--1664, 2002.
 
-\bibitem{fuzzylogic}
-Fuzzy logic.
-\newblock \url{https://en.wikipedia.org/wiki/Fuzzy_logic}.
-\newblock Accessed: 2018-09-29.
+\bibitem{GRH00}
+JL~Gouz\'e, A~Rapaport, and MZ~Hadj-Sadok.
+\newblock Interval observers for uncertain biological systems.
+\newblock {\em Ecological Modelling}, 133(1):45 -- 56, 2000.
 
-\bibitem{fip}
-Fuzzy inference process.
-\newblock
-  \url{https://www.mathworks.com/help/fuzzy/fuzzy-inference-process.html}.
-\newblock Accessed: 2018-09-29.
+\bibitem{BGH+08}
+M~Heiner R~Breitling, D~Gilbert and R~Orton.
+\newblock A structured approach for the engineering of biochemical network
+  models, illustrated for signalling pathways.
+\newblock {\em Briefings in Bioinformatics}, 9(5):404--421, 2008.
 
-\bibitem{mamdani}
-Mamdani-type fuzzy inference.
-\newblock
-  \url{https://www.mathworks.com/help/fuzzy/what-is-mamdani-type-fuzzy-inference.html}.
-\newblock Accessed: 2018-09-29.
+\bibitem{Zad65}
+LA~Zadeh.
+\newblock Fuzzy sets.
+\newblock {\em Inform. and Control}, (8):338--353, 1965.
 
-\bibitem{ts}
-Sugeno-type fuzzy inference.
-\newblock
-  \url{https://www.mathworks.com/help/fuzzy/what-is-sugeno-type-fuzzy-inference.html}.
-\newblock Accessed: 2018-09-29.
+\bibitem{WRK07}
+PP~Wang, D~Ruan, and EE~Kerre.
+\newblock {\em Fuzzy Logic}.
+\newblock Springer-Verlag, Berlin Heidelberg, 2007.
 
-\bibitem{enzyme}
-Enzyme.
-\newblock \url{https://en.wikipedia.org/wiki/Enzyme}.
-\newblock Accessed: 2018-09-29.
+\bibitem{LHG18}
+F~Liu, M~Heiner, and D~Gilbert.
+\newblock {Fuzzy Petri nets for modelling of uncertain biological systems}.
+\newblock {\em Briefings in Bioinformatics}, 2018.
+\newblock accepted for publication:16 November 2018, published: 27 December
+  2018.
 
-\bibitem{rkip}
-Raf kinase inhibitor protein.
-\newblock \url{https://en.wikipedia.org/wiki/Raf_kinase_inhibitor_protein}.
-\newblock Accessed: 2018-09-29.
+\bibitem{Mur89}
+T~Murata.
+\newblock Petri nets: Properties, analysis and applications.
+\newblock {\em Proceedings of the IEEE}, 77(4):541--580, 1989.
+
+\bibitem{Mamdani74}
+E.~H. Mamdani.
+\newblock Application of fuzzy algorithms for control of simple dynamic plant.
+\newblock {\em Proceedings of the Institution of Electrical Engineers},
+  121(12):1585--1588, December 1974.
+
+\bibitem{TS85}
+T.~Takagi and M.~Sugeno.
+\newblock Fuzzy identification of systems and its applications to modeling and
+  control.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  SMC-15(1):116--132, Jan 1985.
+
+\bibitem{LBHY14}
+F~Liu, MA~Bl\"atke, M~Heiner, and M~Yang.
+\newblock {Modelling and simulating reaction¨Cdiffusion systems using coloured
+  Petri nets}.
+\newblock {\em Computers in Biology and Medicine}, 53:297--308, October 2014.
+\newblock online July 2014.
+
+\bibitem{BHM11}
+MA~Bl\"atke, M~Heiner, and W~Marwan.
+\newblock {Tutorial - Petri Nets in Systems Biology}.
+\newblock Technical report, Otto von Guericke University Magdeburg, Magdeburg
+  Centre for Systems Biology, August 2011.
+
+\bibitem{CSK+03}
+Cho Kwang-Hyun, Shin Sung-Young, Kim Hyun-Woo, Olaf Wolkenhauer, Brian
+  McFerran, and Walter Kolch.
+\newblock Mathematical modeling of the influence of rkip on the erk signaling
+  pathway.
+\newblock In Corrado Priami, editor, {\em Computational Methods in Systems
+  Biology}, pages 127--141, Berlin, Heidelberg, 2003. Springer Berlin
+  Heidelberg.
+
+\bibitem{GH06}
+D.~Gilbert and M.~Heiner.
+\newblock {From Petri nets to differential equations - an integrative approach
+  for biochemical network analysis}.
+\newblock In {\em Proc. ICATPN 2006}, pages 181--200. LNCS 4024, Springer,
+  2006.
+\newblock This paper is a short version of Techn. Report I-04/2005, BTU
+  Cottbus, [GH05].
 
 \bibitem{lavrova2017ordinary}
 Anastasia~I Lavrova, Eugene~B Postnikov, Andrey~Yu Zyubin, and Svetlana~V

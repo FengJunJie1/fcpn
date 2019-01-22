@@ -1,3 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Manual.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
+Repeated entry---line 272 of file ref.bib
+ : @article{Zad65
+ :               ,
+I'm skipping whatever remains of this entry
+Warning--there's a number but no volume in Zad65
+Name 2 in "MA Bl\"atke and M Heiner, and W Marwan" has a comma at the end for entry BHM11
+while executing---line 944 of file unsrt.bst
+(There were 2 error messages)
