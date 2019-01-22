@@ -23,7 +23,7 @@
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1195" y="2380"/>
+                    <position x="926" y="566"/>
                 </graphics>
                 <initialMarking>
                     <text>20</text>
@@ -48,7 +48,7 @@
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1563" y="2249"/>
+                    <position x="1175" y="525"/>
                 </graphics>
                 <initialMarking>
                     <text>0</text>
@@ -73,7 +73,7 @@
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1198" y="2155"/>
+                    <position x="927" y="469"/>
                 </graphics>
                 <initialMarking>
                     <text>30</text>
@@ -98,7 +98,7 @@
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1363" y="2264"/>
+                    <position x="1044" y="526"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.1)</text>
@@ -108,42 +108,6 @@
                     <show>N</show>
                 </comment>
             </transition>
-            <arc id="a1" source="p1" target="t0">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>23.284271247</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a0" source="p0" target="t0">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>2</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>23.284271247</TimeStep>
-                </fis>
-            </arc>
             <arc id="a2" source="t0" target="p2">
                 <inscription>
                     <text>1</text>
@@ -287,6 +251,42 @@
                             <int>3</int>
                         </row>
                     </Rules>
+                </fis>
+            </arc>
+            <arc id="a1" source="p1" target="t0">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>23.284271247</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a0" source="p0" target="t0">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>2</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>23.284271247</TimeStep>
                 </fis>
             </arc>
         </page>

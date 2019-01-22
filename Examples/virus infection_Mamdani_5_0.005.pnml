@@ -23,7 +23,7 @@
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1650" y="2676"/>
+                    <position x="1615" y="2676"/>
                 </graphics>
                 <initialMarking>
                     <text>0</text>
@@ -98,35 +98,10 @@
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1651" y="2822"/>
+                    <position x="1614" y="2821"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.5)</text>
-                </function>
-                <comment>
-                    <text></text>
-                    <show>N</show>
-                </comment>
-            </transition>
-            <transition id="t5">
-                <name>
-                    <text>Cell_growth</text>
-                    <graphics>
-                        <offset x="30" y="10"/>
-                    </graphics>
-                </name>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <toolspecific tool="petrinet" version="1.0">
-                    <rotation degree="0"/>
-                </toolspecific>
-                <graphics>
-                    <position x="1421" y="2537"/>
-                </graphics>
-                <function>
-                    <text>MassAction(1)</text>
                 </function>
                 <comment>
                     <text></text>
@@ -158,9 +133,9 @@
                     <show>N</show>
                 </comment>
             </transition>
-            <transition id="t6">
+            <transition id="t5">
                 <name>
-                    <text>Infection</text>
+                    <text>Cell_growth</text>
                     <graphics>
                         <offset x="30" y="10"/>
                     </graphics>
@@ -173,35 +148,10 @@
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1647" y="2547"/>
+                    <position x="1415" y="2536"/>
                 </graphics>
                 <function>
                     <text>MassAction(1)</text>
-                </function>
-                <comment>
-                    <text></text>
-                    <show>N</show>
-                </comment>
-            </transition>
-            <transition id="t3">
-                <name>
-                    <text>Ucell_death</text>
-                    <graphics>
-                        <offset x="30" y="10"/>
-                    </graphics>
-                </name>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <toolspecific tool="petrinet" version="1.0">
-                    <rotation degree="0"/>
-                </toolspecific>
-                <graphics>
-                    <position x="1413" y="2240"/>
-                </graphics>
-                <function>
-                    <text>MassAction(0.1)</text>
                 </function>
                 <comment>
                     <text></text>
@@ -233,6 +183,110 @@
                     <show>N</show>
                 </comment>
             </transition>
+            <transition id="t6">
+                <name>
+                    <text>Infection</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="1614" y="2543"/>
+                </graphics>
+                <function>
+                    <text>MassAction(1)</text>
+                </function>
+                <comment>
+                    <text></text>
+                    <show>N</show>
+                </comment>
+            </transition>
+            <transition id="t3">
+                <name>
+                    <text>Ucell_death</text>
+                    <graphics>
+                        <offset x="30" y="10"/>
+                    </graphics>
+                </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <toolspecific tool="petrinet" version="1.0">
+                    <rotation degree="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="1418" y="2240"/>
+                </graphics>
+                <function>
+                    <text>MassAction(0.1)</text>
+                </function>
+                <comment>
+                    <text></text>
+                    <show>N</show>
+                </comment>
+            </transition>
+            <arc id="a10" source="p2" target="t6">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a8" source="p2" target="t3">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>5.758871540913362e-193</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a9" source="t5" target="p2">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
             <arc id="a11" source="p3" target="t6">
                 <inscription>
                     <text>1</text>
@@ -408,191 +462,7 @@
                     </Rules>
                 </fis>
             </arc>
-            <arc id="a13" source="t7" target="p3">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>FIS(Infected_cells;Virus)</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="255" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName>FIS(Infected_cells;Virus)</FISName>
-                    <FISType>Mamdani</FISType>
-                    <Deffuzification>Centroid</Deffuzification>
-                    <TimeStep>0.005</TimeStep>
-                    <VariableName>
-                        <string>Infected_cells</string>
-                        <string>Virus</string>
-                    </VariableName>
-                    <RangeMin>
-                        <double>0</double>
-                        <double>0</double>
-                    </RangeMin>
-                    <RangeMax>
-                        <double>75</double>
-                        <double>3.75</double>
-                    </RangeMax>
-                    <InputOrOutput>
-                        <int>0</int>
-                        <int>1</int>
-                    </InputOrOutput>
-                    <LinguisticName>
-                        <row>
-                            <string>Low</string>
-                            <string>Medium</string>
-                            <string>High</string>
-                        </row>
-                        <row>
-                            <string>Low</string>
-                            <string>Medium</string>
-                            <string>High</string>
-                        </row>
-                    </LinguisticName>
-                    <LinguisticType>
-                        <row>
-                            <int>0</int>
-                            <int>0</int>
-                            <int>0</int>
-                        </row>
-                        <row>
-                            <int>0</int>
-                            <int>0</int>
-                            <int>0</int>
-                        </row>
-                    </LinguisticType>
-                    <Para1>
-                        <row>
-                            <double>0</double>
-                            <double>0</double>
-                            <double>37.5</double>
-                        </row>
-                        <row>
-                            <double>0</double>
-                            <double>0</double>
-                            <double>1.875</double>
-                        </row>
-                    </Para1>
-                    <Para2>
-                        <row>
-                            <double>0</double>
-                            <double>37.5</double>
-                            <double>75</double>
-                        </row>
-                        <row>
-                            <double>0</double>
-                            <double>1.875</double>
-                            <double>3.75</double>
-                        </row>
-                    </Para2>
-                    <Para3>
-                        <row>
-                            <double>37.5</double>
-                            <double>75</double>
-                            <double>75</double>
-                        </row>
-                        <row>
-                            <double>1.875</double>
-                            <double>3.75</double>
-                            <double>3.75</double>
-                        </row>
-                    </Para3>
-                    <NewSortedVariables>
-                        <int>0</int>
-                        <int>1</int>
-                    </NewSortedVariables>
-                    <Rules>
-                        <row>
-                            <int>0</int>
-                            <int>0</int>
-                        </row>
-                        <row>
-                            <int>1</int>
-                            <int>1</int>
-                        </row>
-                        <row>
-                            <int>2</int>
-                            <int>2</int>
-                        </row>
-                    </Rules>
-                </fis>
-            </arc>
-            <arc id="a10" source="p2" target="t6">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
             <arc id="a14" source="p4" target="t7">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a9" source="t5" target="p2">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a15" source="t6" target="p4">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <color>
-                    <brush red="255" green="255" blue="255"/>
-                    <pen red="0" green="0" blue="0"/>
-                </color>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a16" source="p4" target="t8">
                 <inscription>
                     <text>1</text>
                 </inscription>
@@ -722,7 +592,7 @@
                     </Rules>
                 </fis>
             </arc>
-            <arc id="a8" source="p2" target="t3">
+            <arc id="a16" source="p4" target="t8">
                 <inscription>
                     <text>1</text>
                 </inscription>
@@ -737,7 +607,137 @@
                     <FISName></FISName>
                     <FISType></FISType>
                     <Deffuzification></Deffuzification>
-                    <TimeStep>5.758871540913362e-193</TimeStep>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a13" source="t7" target="p3">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>FIS(Infected_cells;Virus)</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="255" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName>FIS(Infected_cells;Virus)</FISName>
+                    <FISType>Mamdani</FISType>
+                    <Deffuzification>Centroid</Deffuzification>
+                    <TimeStep>0.005</TimeStep>
+                    <VariableName>
+                        <string>Infected_cells</string>
+                        <string>Virus</string>
+                    </VariableName>
+                    <RangeMin>
+                        <double>0</double>
+                        <double>0</double>
+                    </RangeMin>
+                    <RangeMax>
+                        <double>75</double>
+                        <double>3.75</double>
+                    </RangeMax>
+                    <InputOrOutput>
+                        <int>0</int>
+                        <int>1</int>
+                    </InputOrOutput>
+                    <LinguisticName>
+                        <row>
+                            <string>Low</string>
+                            <string>Medium</string>
+                            <string>High</string>
+                        </row>
+                        <row>
+                            <string>Low</string>
+                            <string>Medium</string>
+                            <string>High</string>
+                        </row>
+                    </LinguisticName>
+                    <LinguisticType>
+                        <row>
+                            <int>0</int>
+                            <int>0</int>
+                            <int>0</int>
+                        </row>
+                        <row>
+                            <int>0</int>
+                            <int>0</int>
+                            <int>0</int>
+                        </row>
+                    </LinguisticType>
+                    <Para1>
+                        <row>
+                            <double>0</double>
+                            <double>0</double>
+                            <double>37.5</double>
+                        </row>
+                        <row>
+                            <double>0</double>
+                            <double>0</double>
+                            <double>1.875</double>
+                        </row>
+                    </Para1>
+                    <Para2>
+                        <row>
+                            <double>0</double>
+                            <double>37.5</double>
+                            <double>75</double>
+                        </row>
+                        <row>
+                            <double>0</double>
+                            <double>1.875</double>
+                            <double>3.75</double>
+                        </row>
+                    </Para2>
+                    <Para3>
+                        <row>
+                            <double>37.5</double>
+                            <double>75</double>
+                            <double>75</double>
+                        </row>
+                        <row>
+                            <double>1.875</double>
+                            <double>3.75</double>
+                            <double>3.75</double>
+                        </row>
+                    </Para3>
+                    <NewSortedVariables>
+                        <int>0</int>
+                        <int>1</int>
+                    </NewSortedVariables>
+                    <Rules>
+                        <row>
+                            <int>0</int>
+                            <int>0</int>
+                        </row>
+                        <row>
+                            <int>1</int>
+                            <int>1</int>
+                        </row>
+                        <row>
+                            <int>2</int>
+                            <int>2</int>
+                        </row>
+                    </Rules>
+                </fis>
+            </arc>
+            <arc id="a15" source="t6" target="p4">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
                 </fis>
             </arc>
         </page>

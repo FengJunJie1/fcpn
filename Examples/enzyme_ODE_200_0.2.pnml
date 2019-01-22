@@ -8,39 +8,22 @@
             <name>
                 <text>enzyme_ODE_200_0.2</text>
             </name>
-            <place id="p0">
+            <place id="p2">
                 <name>
-                    <text>Substrate</text>
+                    <text>Substrate_Enzyme_Complex</text>
                     <graphics>
-                        <offset x="31" y="-3"/>
+                        <offset x="-193" y="10"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="2029" y="2384"/>
-                </graphics>
-                <initialMarking>
-                    <text>100</text>
-                </initialMarking>
-                <comment>
-                    <text></text>
-                    <show>N</show>
-                </comment>
-            </place>
-            <place id="p3">
-                <name>
-                    <text>Product</text>
-                    <graphics>
-                        <offset x="30" y="30"/>
-                    </graphics>
-                </name>
-                <toolspecific tool="petrinet" version="1.0">
-                    <placeCapacity capacity="0"/>
-                </toolspecific>
-                <graphics>
-                    <position x="2058" y="2542"/>
+                    <position x="1139" y="591"/>
                 </graphics>
                 <initialMarking>
                     <text>0</text>
@@ -57,11 +40,15 @@
                         <offset x="33" y="4"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="2208" y="2380"/>
+                    <position x="1256" y="372"/>
                 </graphics>
                 <initialMarking>
                     <text>10</text>
@@ -71,18 +58,47 @@
                     <show>N</show>
                 </comment>
             </place>
-            <place id="p2">
+            <place id="p0">
                 <name>
-                    <text>Substrate_Enzyme_Complex</text>
+                    <text>Substrate</text>
                     <graphics>
-                        <offset x="-101" y="-17"/>
+                        <offset x="31" y="-3"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <placeCapacity capacity="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="2123" y="2483"/>
+                    <position x="1027" y="372"/>
+                </graphics>
+                <initialMarking>
+                    <text>100</text>
+                </initialMarking>
+                <comment>
+                    <text></text>
+                    <show>N</show>
+                </comment>
+            </place>
+            <place id="p3">
+                <name>
+                    <text>Product</text>
+                    <graphics>
+                        <offset x="30" y="30"/>
+                    </graphics>
+                </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <toolspecific tool="petrinet" version="1.0">
+                    <placeCapacity capacity="0"/>
+                </toolspecific>
+                <graphics>
+                    <position x="1016" y="721"/>
                 </graphics>
                 <initialMarking>
                     <text>0</text>
@@ -96,14 +112,18 @@
                 <name>
                     <text>Synthesis</text>
                     <graphics>
-                        <offset x="30" y="10"/>
+                        <offset x="1" y="34"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="2210" y="2542"/>
+                    <position x="1139" y="720"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.1)</text>
@@ -120,11 +140,15 @@
                         <offset x="30" y="10"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="1915" y="2483"/>
+                    <position x="1026" y="516"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.1)</text>
@@ -141,11 +165,15 @@
                         <offset x="30" y="10"/>
                     </graphics>
                 </name>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <toolspecific tool="petrinet" version="1.0">
                     <rotation degree="0"/>
                 </toolspecific>
                 <graphics>
-                    <position x="2331" y="2483"/>
+                    <position x="1254" y="520"/>
                 </graphics>
                 <function>
                     <text>MassAction(0.1)</text>
@@ -162,6 +190,10 @@
                 <expression>
                     <text>1</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
@@ -176,62 +208,10 @@
                 <expression>
                     <text>1</text>
                 </expression>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a6" source="p2" target="t2">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a5" source="t1" target="p2">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a3" source="t2" target="p1">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
-                <fis>
-                    <FISName></FISName>
-                    <FISType></FISType>
-                    <Deffuzification></Deffuzification>
-                    <TimeStep>0</TimeStep>
-                </fis>
-            </arc>
-            <arc id="a0" source="p0" target="t1">
-                <inscription>
-                    <text>1</text>
-                </inscription>
-                <expression>
-                    <text>1</text>
-                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
@@ -246,6 +226,10 @@
                 <expression>
                     <text>1</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
@@ -260,6 +244,82 @@
                 <expression>
                     <text>1</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a3" source="t2" target="p1">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a6" source="p2" target="t2">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a0" source="p0" target="t1">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
+                <fis>
+                    <FISName></FISName>
+                    <FISType></FISType>
+                    <Deffuzification></Deffuzification>
+                    <TimeStep>0</TimeStep>
+                </fis>
+            </arc>
+            <arc id="a5" source="t1" target="p2">
+                <inscription>
+                    <text>1</text>
+                </inscription>
+                <expression>
+                    <text>1</text>
+                </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>
@@ -274,6 +334,10 @@
                 <expression>
                     <text>1</text>
                 </expression>
+                <color>
+                    <brush red="255" green="255" blue="255"/>
+                    <pen red="0" green="0" blue="0"/>
+                </color>
                 <fis>
                     <FISName></FISName>
                     <FISType></FISType>

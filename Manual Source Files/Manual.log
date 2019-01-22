@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.15)  21 JAN 2019 20:59
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.15)  22 JAN 2019 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -338,16 +338,25 @@ File: fig5.png Graphic file (type bmp)
 <fig5.png>
 File: fig7.png Graphic file (type bmp)
 <fig7.png>
- [13] [14]
+ [13]
 File: fig8.png Graphic file (type bmp)
 <fig8.png>
+ [14] [15]
 File: fig9.png Graphic file (type bmp)
 <fig9.png>
 File: fig9_1.png Graphic file (type bmp)
 <fig9_1.png>
 File: fig9_2.png Graphic file (type bmp)
 <fig9_2.png>
- [15] [16] [17]
+ [16]
+
+LaTeX Warning: Text page 17 contains only floats.
+
+
+Overfull \vbox (1.72256pt too high) has occurred while \output is active []
+
+
+[17]
 File: fig10.png Graphic file (type bmp)
 <fig10.png>
 File: fig6.png Graphic file (type bmp)
@@ -379,8 +388,7 @@ File: fig16.png Graphic file (type bmp)
 <fig16.png>
 File: fig17.png Graphic file (type bmp)
 <fig17.png>
-
-[23] [24]
+ [23] [24]
 File: fig20.png Graphic file (type bmp)
 <fig20.png>
 File: fig31.png Graphic file (type bmp)
@@ -416,7 +424,8 @@ File: fig24.png Graphic file (type bmp)
 <fig24.png>
  [30
 
-] [31] [32]
+] [31]
+[32]
 File: fig25.png Graphic file (type bmp)
 <fig25.png>
 File: fig41.png Graphic file (type bmp)

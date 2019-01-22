@@ -6,7 +6,7 @@
 \contentsline {subsubsection}{\numberline {1.3.2}T-S Fuzzy Inference}{7}{subsubsection.1.3.2}
 \contentsline {subsection}{\numberline {1.4}Fuzzy continuous Petri nets}{8}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}Our tool}{8}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Features - overview}{9}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.6}Features - overview}{8}{subsection.1.6}
 \contentsline {subsubsection}{\numberline {1.6.1}Features for modeling}{9}{subsubsection.1.6.1}
 \contentsline {subsubsection}{\numberline {1.6.2}Features for simulation}{9}{subsubsection.1.6.2}
 \contentsline {section}{\numberline {2}Modeling}{10}{section.2}
@@ -15,7 +15,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Edit a place}{11}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Edit a transition}{11}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}Edit an arc}{12}{subsubsection.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}Use FIS}{14}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.4}Use FIS}{13}{subsubsection.2.2.4}
 \contentsline {section}{\numberline {3}Simulation}{21}{section.3}
 \contentsline {subsection}{\numberline {3.1}Run simulation}{21}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Show simulation results}{21}{subsection.3.2}
