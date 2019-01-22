@@ -410,13 +410,13 @@
                     <text>1</text>
                 </inscription>
                 <expression>
+                    <text>FIS(S_5;S_4)</text>
                 </expression>
                 <color>
                     <brush red="255" green="255" blue="255"/>
                     <pen red="255" green="0" blue="0"/>
                 </color>
                 <fis>
-                    <FISType>T-S</FISType>
                     <FISName>FIS(S_5;S_4)</FISName>
                     <FISType>Mamdani</FISType>
                     <Deffuzification>centroid</Deffuzification>
