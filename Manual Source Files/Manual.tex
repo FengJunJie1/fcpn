@@ -195,13 +195,12 @@ The result might be a little different from ODE. If the values of $H_2$ and $O_2
 
 \subsection{Our tool}
 
-This F provides modeling and simulation functions of fuzzy continuous Petri nets for researchers in the field of systems biology.
-
+The tool provides modeling and simulation functions of fuzzy continuous Petri nets for researchers in the field of systems biology.
 It includes three main functions: continuous Petri net modeling, fuzzy (Mamdani \& T-S) modeling, and hybrid simulation. 
-The aim of this software is to give an easy-to-use tool for the construction and simulation of an FCPN model.
+The aim of this software is to give an easy-to-use graphical tool for the construction and simulation of FCPN models.
 
+We offer the Windows, Linux, and macOS (beta) versions of the software. To use the software, please follow the instruction in \href{https://github.com/liufei2016/fcpn/blob/master/README.md}{README.md} and download the corresponding version of the tool.
 
-We offer the Windows, Linux, and macOS(beta) versions of the software. To use the software, please follow the instruction in \href{https://github.com/liufei2016/fcpn/blob/master/README.md}{README.md} and download the corresponding version of FCPN tool.
 
 \subsection{Features - overview}
 Before exploring all features in detail in the following sections, we will give a brief overview for the expected features here.
@@ -236,11 +235,10 @@ Before exploring all features in detail in the following sections, we will give 
 This section will present a general step-by-step procedure for how to construct an FCPN model. We will take the chemical reaction $2H_2+O_2\to 2H_2O$ as an example \cite{Mur89} for the illustration of the procedure.
 
 \subsection{An overview of the main interface}
-After opening the application, what we should do first is to draw an FCPN. Figure \ref{fig:Maininterface} shows the main interface of the software. 
-
+Figure \ref{fig:Maininterface} shows the main interface of the software. 
 The menu bar is on the top and the tool bar is on the left, which facilitates us to create the net conveniently. The tools from top to bottom include ``new'', ``open", ``save", ``save as", ``print", ``undo", ``redo", ``delete a node", ``normal cursor", ``create a new place", ``create a new transition", ``create a new arc", and ``start simulation". 
 
-The top window is used to draw the net and the bottom window to output a log. The slider on the bottom right can be used to zoom in or zoom out a net.
+The top window is used to draw the net and the bottom window to output a log. The bottom right slider can be used to zoom in or zoom out a net.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -257,11 +255,11 @@ We can draw a net using the following steps taking Figure \ref{fig:drawnet} as a
 
 \begin{itemize}
 	\item Left click the place button (the circle on the tool bar).
-	\item Put three places on the palette where you want by clicking the left mouse.
-	\item Left click the transition button(the square on the tool bar).
-	\item Put one transition on the palette where you want by clicking the left mouse.
+	\item Put three places on the palette where you want by left clicking the mouse.
+	\item Left click the transition button (the square on the tool bar).
+	\item Put one transition on the palette where you want by left clicking the mouse.
 	\item Left click the arc button (the arrow on the tool bar).
-	\item Left click a place, press the mouse and hold, move the mouse to a transition, then release the mouse. In this way you can draw an arrow from a place to a transition.
+	\item Left click a place, press the mouse and hold, move the mouse to a transition, and then release the mouse. In this way you can draw an arrow from a place to a transition or vice versa.
 	\item Repeating these steps, an FCPN can be constructed; see Figure \ref{fig:drawnet}.
 \end{itemize}
 
@@ -276,16 +274,16 @@ We can draw a net using the following steps taking Figure \ref{fig:drawnet} as a
 
 
 \subsubsection{Edit a place}
-We can edit a place in the following way:
+We can edit the properties of a place in the following way:
 
 \begin{itemize}
 	\item Double click the place on the palette.
 	\item A window named Place Attributes (Figure \ref{fig:editplace}) will show.
 	\item Change the Name and Marking.
-	\item After editing, left click OK button.
+	\item After editing, left click the OK button.
 \end{itemize}
 
-For example, in Figure \ref{fig:drawnet}, we change the names of p0, p1, p2 to H2, O2, H2O, respectively, and change the markings of p0, p1, p2 to 30, 20, 0, respectively. Please note that the name of each place should be unique and a marking should be a non-negative real number.
+For example, in Figure \ref{fig:drawnet}, we change the names of p0, p1, and p2 to H2, O2, and H2O, respectively, and change the markings of p0, p1, and p2 to 30, 20, and 0, respectively. Please note that the name of each place should be unique and a marking should be a non-negative real number.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -297,16 +295,16 @@ For example, in Figure \ref{fig:drawnet}, we change the names of p0, p1, p2 to H
 
 
 \subsubsection{Edit a transition}
-We can edit a transition in the following way:
+We can edit the properties of a transition in the following way:
 
 \begin{itemize}
 	\item Double click the transition on the palette.
 	\item A window named Transition Attributes (Figure \ref{fig:edittransition}) will show.
 	\item Change the Name and Function.
-	\item After editing, left click OK button.
+	\item After editing, left click the OK button.
 \end{itemize}
 
-For example, in Figure \ref{fig:drawnet}, we change the function of t0 from MassAction(1) to MassAction(0.1). Please note that the name of each transition should be different and the function should be like ``1", ``H2", ``MassAction(0)", ``MassAction(O2)", ``MassAction(H2+O2)". Remember not to change the ``MassAction(1)" to ``massaction(1)" or something like that. And do not leave the function empty. Otherwise complie error might occur.
+For example, in Figure \ref{fig:drawnet}, we change the function of t0 from the default MassAction(1) to MassAction(0.1). Please note that the name of each transition should be unique and the function should be an expression like a constant ``1", an expression containing its preplaces``0.1*H2", or a mass action ``MassAction(0)". Remember not to change the ``MassAction(1)" to ``massaction(1)" or something like that as we distinguish the upper and lower case letters. And do not leave the function empty; otherwise a compile error will occur.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -319,15 +317,15 @@ For example, in Figure \ref{fig:drawnet}, we change the function of t0 from Mass
 
 
 \subsubsection{Edit an arc}
-We can edit an arc in the following way:
+We can edit th properties of an arc in the following way:
 \begin{itemize}
 	\item Double click the arc on the palette.
 	\item A window named Arc Attributes (Figure \ref{fig:editarc}) will show.
 	\item Change the Expression.
-	\item After editing, left click OK button.
+	\item After editing, left click the OK button.
 \end{itemize}
 
-For example, in Figure \ref{fig:drawnet}, we change the expression of arc from p0 (H2) to t0 to 2. For the expression of arc from t0 to p2 (H2O), see next step. Please note that the expression should be like ``1", ``H2" if you don't want use fuzzy logic, and do not leave the expression empty. Otherwise complie error might occur. 
+For example, in Figure \ref{fig:drawnet}, we change the expression of arc from p0 (H2) to t0 to 2. Please note that the expression should be like ``1", ``H2", if you don't want use fuzzy logic, and do not leave the expression empty. Otherwise a compile error might occur. 
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -337,8 +335,11 @@ For example, in Figure \ref{fig:drawnet}, we change the expression of arc from p
 	\end{center}
 \end{figure}
 
+
+
 \subsubsection{Use FIS}
-FIS is the abbreviation for fuzzy inference system. We provide two kinds of FIS type: Mamdani and T-S. The steps are different between Mamdani and T-S. For example, in Figure \ref{fig:drawnet}, here are steps for using Mamdani: 
+FIS is the abbreviation of the fuzzy inference system. We provide two kinds of FISs: Mamdani and T-S. The steps are slightly different between Mamdani and T-S settings. Here are the steps for using Mamdani inference system: 
+
  \begin{figure}[!hbt]
  	\begin{center}
  		\includegraphics[width=\columnwidth]{fig7}
@@ -350,14 +351,15 @@ FIS is the abbreviation for fuzzy inference system. We provide two kinds of FIS 
 \begin{itemize}
 	\item Double click the arc from t0 to p2 (H2O).
 	\item Click the FIS editor button.
-	\item Choose Mamdani as the FIS Type.
+	\item Choose Mamdani FIS Type.
 	\item Enter the time step and select the number of input variables.
 	\item Click the Apply button.
-	\item Choose each variable and its type in the table.
-	\item Enter the minimum change and maximum change in one step, which are corresponding to the Range-Min and Range-Max of the table.
+	\item Choose each variable and its membership function type (either triangular or Gauss fuzzy numbers) in the table.
+	\item Specify the minimum and maximum values for input variables.
+	\item Specify the minimum and maximum increment/decrement values at a time step for the output.
 \end{itemize}
 
-Make sure there is only one variable whose type is PN\_OUTPUT, and it should be the variable connected by the arc you choosed. In this example, that's p2 (H2O). The values are shown in Figure \ref{fig:Edit variables}.
+Make sure we only allow to specify one output variable whose type is PN\_OUTPUT, and it should be the variable connected by the arc you chose. In this example, that's p2 (H2O). The values are shown in Figure \ref{fig:Edit variables}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -372,13 +374,13 @@ Now we need to edit each variable's membership functions. Here are the steps:
 	\item Click the Edit button on the first column.
 	\item Choose the number of linguistic variables.
 	\item Click the Apply button and the according label will show.
-	\item For each function, enter the value of left, center and right which means the x values when y is equal to 0, 1, 0, respectively.
+	\item For each function, enter the values of left/average, center/variance and right/-, which specify the parameters that are needed by triangular/Gauss fuzzy numbers.
 	\item Click the Show Plot button to see whether it is the graph you want.
-	\item Click OK button to save the change and close the window.
+	\item Click the OK button to save the change and close the window.
 	\item Repeat these steps to edit each variable.
 \end{itemize}
 
-we provide 2, 3, 5, 7 for the user to choose the number of linguistic varibles. The values are shown in Figure \ref{fig:Membership functions of H2}, \ref{fig:Membership functions of O2}, \ref{fig:Membership functions of H2O}.
+We provide the user to choose the number (2, 3, 5, 7) of linguistic terms. The membership functions are shown in Figure \ref{fig:Membership functions of H2}, \ref{fig:Membership functions of O2}, and \ref{fig:Membership functions of H2O}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -387,6 +389,7 @@ we provide 2, 3, 5, 7 for the user to choose the number of linguistic varibles. 
 		\label{fig:Membership functions of H2}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.7\columnwidth]{fig9_1}
@@ -394,6 +397,7 @@ we provide 2, 3, 5, 7 for the user to choose the number of linguistic varibles. 
 		\label{fig:Membership functions of O2}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.7\columnwidth]{fig9_2}
@@ -401,18 +405,20 @@ we provide 2, 3, 5, 7 for the user to choose the number of linguistic varibles. 
 		\label{fig:Membership functions of H2O}
 	\end{center}
 \end{figure}
+
+
 \clearpage
-Now we should edit rules.
+Next we should edit rules by following these steps:
 \begin{itemize}
-	\item Click the Edit rules button on the center of bottom.
+	\item Click the Edit rules button on the bottom.
 	\item Select the items of a rule, and left click Add rule button to add it.
 	\item Repeat the previous step to add rules.
 	\item Click the OK button to save the changes and close the window.
 \end{itemize}
 
-We can select a row and left click Change rule button to change it to the rule you selected in the below. Choosing a row and left clicking the Delete rule button can be used to delete the rule.
+We can select a row and left click Change rule button to change the rule you selected. Choosing a row and left clicking the Delete rule button can be used to delete the rule.
 
-Make sure that the meanings of input's linguistic variables and output's linguistic variables are different. For example, as is shown in Figure \ref{fig:Edit rules}, one of the rules is - IF H2 IS Low AND O2 IS Low Then H20 IS Low. This means that the low values of H2 and O2 will cause low value change of H2O, not meaning that the value of H2O will be low.
+Make sure that the meanings of inputs' linguistic variables and output's linguistic variables are different. For example, as is shown in Figure \ref{fig:Edit rules}, one of the rules is - IF H2 IS Low AND O2 IS Low Then H20 IS Low. This means that if the value of H2 is Low and the value of O2 is Low, then the increment of H2O is Low, not meaning that the value of H2O will be low.
 
 The rules are shown in Figure \ref{fig:Edit rules}.
 
@@ -424,7 +430,7 @@ The rules are shown in Figure \ref{fig:Edit rules}.
 	\end{center}
 \end{figure}
 
-Now left click the OK button of FIS editor and left click the OK button of arc to return to the main interface. The net should be like Figure \ref{fig:After FIS}.
+Now left click the OK button of the FIS editor and left click the OK button of the arc to return to the main interface. The net should be like Figure \ref{fig:After FIS}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -433,8 +439,12 @@ Now left click the OK button of FIS editor and left click the OK button of arc t
 		\label{fig:After FIS}
 	\end{center}
 \end{figure}
+
+
 \clearpage
-There are some differences between Mamdani and T-S. First, in T-S, when left clicking the Edit button of variable whose type is PN\_OUTPUT, there is no need to edit its membership functions.
+There are some differences between Mamdani and T-S settings. 
+
+First, in the T-S setting, when left clicking the Edit button of variable whose type is PN\_OUTPUT, there is no need to edit its membership functions.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -443,11 +453,11 @@ There are some differences between Mamdani and T-S. First, in T-S, when left cli
 		\label{fig:T-S FIS}
 	\end{center}
 \end{figure}
+
 Second, when editing rules, the last column should be edited by the user as is shown in Figure \ref{fig:Enter rules when using T-S}. 
+Add rules first and then change the content of the last column by double clicking the space of the last column of each row and entering the formulas. Then left click the OK button to save changes. 
+Other steps are similar to the Mamdani setting.
 
-Add rules first and then change the content of last column by double clicking the content of last column of each row and entering the formulas. Then left click OK button to save changes. 
-
-Other steps are silimar to Mamdani.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig12}
@@ -455,21 +465,24 @@ Other steps are silimar to Mamdani.
 		\label{fig:Enter rules when using T-S}
 	\end{center}
 \end{figure}
+
+
 \clearpage
 
 \section{Simulation}
-After modeling, left click the ``start simulation'' button on the tool bar to use the simulation function.
+After an FCPN is finished, left click the ``start simulation'' button on the tool bar to start the simulation function.
+
 \subsection{Run simulation}
-In the simulation shown as Figure \ref{fig:Simulation}, the user can first set simulation parameters, then left click the Start Simulation button to start simulation. The settings include:
+In the simulation dialogue shown in Figure \ref{fig:Simulation}, the user can first set simulation parameters, then left click the Start Simulation button to start a simulation. The settings include:
 \begin{itemize}
-	\item Setting interval start.
-	\item Setting interval start.
-	\item Choosing ODE solver.
-	\item Setting time step.
+	\item Setting an interval start.
+	\item Setting an interval start.
+	\item Choosing an ODE solver (only one solver supported at present).
+	\item Setting a time step.
 	\item Choosing to check negative value or not.
 \end{itemize}
 
-Please make sure the time step is smaller than FISs' step size. Otherwise the result might be incorrect.
+Please make sure the time step is smaller than the step size given in the FIS setting. Otherwise the result might be incorrect.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -478,8 +491,9 @@ Please make sure the time step is smaller than FISs' step size. Otherwise the re
 		\label{fig:Simulation}
 	\end{center}
 \end{figure}
+
 \subsection{Show simulation results}
-During simulation, the progress bar shows the progess. And the time is updated. After simulation, the graph will show. The user can zoom in or zoom out to see the details and check or uncheck the boxes on the right to show or hide the according variables.
+During simulation, the progress bar shows the progress of a simulation. After simulation, the plot will show. The user can zoom in or zoom out to see the details and check or uncheck the boxes on the right to show or hide the according variables.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -488,6 +502,7 @@ During simulation, the progress bar shows the progess. And the time is updated. 
 		\label{fig:Simulation result (Mamdani)}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig18}
@@ -496,9 +511,9 @@ During simulation, the progress bar shows the progess. And the time is updated. 
 	\end{center}
 \end{figure}
 
-To avoid misoperation, after entering the simulation, most of the functions in main interface such like adding items, can not be used. So if you want to be back to main interface, remember to left click ``normal cursor'' on the left tool bar. Otherwise you will find that most of the functions can't use.
+To avoid mis-operation, after entering the simulation, most of the functions in the main interface such as adding items, can not be used. So if you want to get back to edit in the main interface, remember to left click ``normal cursor'' on the left tool bar. Otherwise you will find that most of the functions can't use.
 
-Actually, the user can choose to use no FIS, Mamdani, T-S, hybrid FIS to run the simulation. Therefore, let's try to use no FIS to run the simulation. 
+Actually, the user can choose four modes: no FIS, Mamdani, T-S, and hybrid FIS, to run the simulation. Therefore, let us use the no FIS mode to show how to run the simulation. 
 
 \begin{itemize}
 	\item Close the simulation window.
@@ -517,8 +532,9 @@ The result can be a little bit different, but still shows the general trend.
 	\end{center}
 \end{figure}
 
+
 \subsection{Export simulation results}
-The user can choose the export method and left click the Export button to export.
+The user can choose the export way and left click the Export button to export.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig19}
@@ -526,8 +542,10 @@ The user can choose the export method and left click the Export button to export
 		\label{fig:Export result}
 	\end{center}
 \end{figure}
+
 \subsection{Rich functions}
-Different tools are provided where located at the center of bottom. The user can view the Tabular to see the values of variables by left clicking the View Tabular button or edit properties by left clicking the Edit Properties.
+Different tools are provided which are located at the center of the bottom. The user can view the Tabular to see the values of variables by left clicking the View Tabular button or edit properties by left clicking the Edit Properties.
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig16}
@@ -535,6 +553,7 @@ Different tools are provided where located at the center of bottom. The user can
 		\label{fig:View Tabular}
 	\end{center}
 \end{figure}
+
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig17}
@@ -549,9 +568,8 @@ Different tools are provided where located at the center of bottom. The user can
 
 \clearpage
 \section{Examples}
-In this section, we will show four examples. And we provide the file of the examples named A\_B\_C\_D where A is the name of the example, and B is the FIS type we used, and C is the interval end and D is the step size. The default interval start is 0. 
+In this section, we will show four examples to illustrate our tool. And we name the file of an example with A\_B\_C\_D, where A is the name of the example, B is the FIS type we used, C is the interval end of the simulation, and D is the step size. The default interval start is 0 for a simulation. 
 
-Open the application and left click the ``Open'' button on the tool bar or use Cltr+O to open the file. Then you can run the simulation.
 
 \subsection{1D Diffusion Reaction}
 
@@ -559,7 +577,7 @@ Open the application and left click the ``Open'' button on the tool bar or use C
 The first example is one-dimensional (1D) diffusion reaction \cite{LBHY14}, which describes a species diffusing into one of its neighbour cells in a 1D grid.
 
 \subsubsection{Model}
-The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
+The model is shown in Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig20}
@@ -570,7 +588,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{Transition functions of 1D Diffusion Reaction.}
+		\caption{Transition functions of the model of 1D Diffusion Reaction.}
 		\label{Transition functions of 1D Diffusion Reaction}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -600,7 +618,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig31}
 		\includegraphics[width=0.45\columnwidth]{fig32}
-		\caption{Membership functions of 1D Diffusion Reaction using Mamdani.}
+		\caption{Membership functions of the 1D Diffusion Reaction model using the Mamdani setting.}
 		\label{fig:Membership functions of 1D Diffusion Reaction using Mamdani.}
 	\end{center}
 \end{figure}
@@ -608,7 +626,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig33}
-		\caption{Rules of 1D Diffusion Reaction using Mamdani.}
+		\caption{Rules of the 1D Diffusion Reaction model using the Mamdani setting.}
 		\label{fig:Rules of 1D Diffusion Reaction using Mamdani.}
 	\end{center}
 \end{figure}
@@ -616,7 +634,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig34}
-		\caption{Membership functions of 1D Diffusion Reaction using T-S.}
+		\caption{Membership functions of the 1D Diffusion Reaction model using the T-S setting.}
 		\label{fig:Membership functions of 1D Diffusion Reaction using T-S.}
 	\end{center}
 \end{figure}
@@ -624,7 +642,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig35}
-		\caption{Rules of 1D Diffusion Reaction using T-S.}
+		\caption{Rules of the 1D Diffusion Reaction model using the T-S setting.}
 		\label{fig:Rules of 1D Diffusion Reaction using T-S.}
 	\end{center}
 \end{figure}
@@ -633,7 +651,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig36}
 		\includegraphics[width=0.45\columnwidth]{fig37}
-		\caption{Membership functions of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+		\caption{Membership functions of the 1D Diffusion Reaction model using the hybrid FIS setting (Mamdani).}
 		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
 	\end{center}
 \end{figure}
@@ -641,7 +659,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig38}
-		\caption{Rules of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
+		\caption{Rules of the 1D Diffusion Reaction model using the hybrid FIS setting (Mamdani).}
 		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (Mamdani).}
 	\end{center}
 \end{figure}
@@ -649,7 +667,7 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=0.9\columnwidth]{fig39}
-		\caption{Membership functions of 1D Diffusion Reaction using hybrid FIS (T-S).}
+		\caption{Membership functions of the 1D Diffusion Reaction model using the hybrid FIS setting (T-S).}
 		\label{fig:Membership functions of 1D Diffusion Reaction using hybrid FIS (T-S).}
 	\end{center}
 \end{figure}
@@ -657,24 +675,25 @@ The model is shown as Figure \ref{fig:The model of 1D diffusion reaction}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig40}
-		\caption{Rules of 1D Diffusion Reaction using hybrid FIS (T-S).}
+		\caption{Rules of the 1D Diffusion Reaction model using the hybrid FIS setting (T-S).}
 		\label{fig:Rules of 1D Diffusion Reaction using hybrid FIS (T-S).}
 	\end{center}
 \end{figure}
 
 
+
 \clearpage
 \subsubsection{Simulation result}
-In this example, we use only ODEs, Mamdani, T-S, and hybrid FIS. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using only ODEs.}.
+In this example, we give the results of the four modes: no FIS (only ODEs), Mamdani, T-S, and hybrid FIS. The result of only ODEs is shown in Figure \ref{fig:Simulation result of 1D diffusion reaction using only ODEs.}.
 
-When using Mamdani, we choose to change the arc from t\_5\_4 to S\_4 to FIS. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using Mamdani.}.
+When using the Mamdani setting, we choose to assign an FIS to the arc from t\_5\_4 to S\_4. The result is shown in Figure \ref{fig:Simulation result of 1D diffusion reaction using Mamdani.}.
 
-When using T-S, we choose to change the arc from t\_4\_5 to S\_5 to FIS. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using T-S.}.
+When using T-S, we choose to assign an FIS to the arc the arc from t\_4\_5 to S\_5. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using T-S.}.
 
-When using hybrid FIS, we choose to change the arc from t\_5\_4 to S\_4 to Mamdani and change the arc from t\_4\_5 to S\_5 to T-S. 
+When using hybrid FIS, we choose to assign an mamdani FIS to the arc from t\_5\_4 to S\_4 and to assign a T-S FIS to the arc from t\_4\_5 to S\_5. 
 The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using hybrid FIS.}.
 
-In method of only ODEs, the value of all variables eventually becomes 2 while in other three methods, the final values of the variables are not 2, but are all very close to 2. And the trends of curves are consistent.
+In the mode of only ODEs, the values of all variables eventually reach 2 while in the other three modes, the final values of the variables are not 2, but are very close to 2. And the trends of all four curves are consistent.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -717,7 +736,7 @@ In method of only ODEs, the value of all variables eventually becomes 2 while in
 The second example is enzymatic reaction \cite{BHM11}. Enzymes are macromolecular biological catalysts, which can accelerate chemical reactions. The molecules upon which enzymes may act are called substrates and the enzyme converts the substrates into different molecules, known as products. Almost all metabolic processes in a cell need enzyme catalysis in order to occur at rates fast enough to sustain life. Metabolic pathways depend upon enzymes to catalyze individual steps. 
 
 \subsubsection{Model}
-The model is shown as Figure \ref{fig:The model of enzyme}.
+The model is shown in Figure \ref{fig:The model of enzyme}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -729,7 +748,7 @@ The model is shown as Figure \ref{fig:The model of enzyme}.
 
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{Transition functions of enzymatic reaction.}
+		\caption{Transition functions of the enzymatic reaction model.}
 		\label{Transition functions of enzyme}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -749,7 +768,7 @@ The model is shown as Figure \ref{fig:The model of enzyme}.
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig41}
 		\includegraphics[width=0.45\columnwidth]{fig42}
-		\caption{Membership functions of enzymatic reaction using Mamdani.}
+		\caption{Membership functions of the enzymatic reaction model using the Mamdani setting.}
 		\label{fig:Membership functions of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
@@ -757,22 +776,22 @@ The model is shown as Figure \ref{fig:The model of enzyme}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig43}
-		\caption{Rules of enzymatic reaction using Mamdani.}
+		\caption{Rules of the enzymatic reaction model using the Mamdani setting.}
 		\label{fig:Rules of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
 
 \subsubsection{Simulation result}
-In this example, we use only ODEs and Mamdani. The result of only ODEs is shown as Figure \ref{fig:Simulation result of enzyme using only ODEs.}.
+In this example, we give the result of two modes: only ODEs and Mamdani. The result of only ODEs is shown in Figure \ref{fig:Simulation result of enzyme using only ODEs.}.
 
-When using Mamdani, we choose to change the arc from Synthesis to Product to FIS. The result is shown as Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
+When using the Mamdani setting, we choose to assign an FIS to the arc from Synthesis to Product. The result is shown as Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
 
 As we can see, the results are almost the same.
 
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig26}
-		\caption{Simulation result of enzymatic reaction using only ODEs.}
+		\caption{Simulation result of the enzymatic reaction model using only ODEs.}
 		\label{fig:Simulation result of enzyme using only ODEs.}
 	\end{center}
 \end{figure}
@@ -780,7 +799,7 @@ As we can see, the results are almost the same.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig27}
-		\caption{Simulation result of enzymatic reaction using Mamdani.}
+		\caption{Simulation result of the enzymatic reaction model using the Mamdani setting.}
 		\label{fig:Simulation result of enzyme using Mamdani.}
 	\end{center}
 \end{figure}
@@ -802,14 +821,14 @@ The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig28}
-		\caption{The model of RKIP.}
+		\caption{The model of the RKIP pathway.}
 		\label{fig:The model of RKIP}
 	\end{center}
 \end{figure}
 
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{Transition functions of RKIP.}
+		\caption{Transition functions of the RKIP pathway model.}
 		\label{Transition functions of RKIP}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -845,7 +864,7 @@ The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig44}
 		\includegraphics[width=0.45\columnwidth]{fig45}
-		\caption{Membership functions of RKIP using T-S.}
+		\caption{Membership functions of the RKIP pathway model using the T-S setting.}
 		\label{fig:Membership functions of RKIP using T-S.}
 	\end{center}
 \end{figure}
@@ -853,23 +872,23 @@ The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig46}
-		\caption{Rules of RKIP using T-S.}
+		\caption{Rules of the RKIP pathway model using the T-S setting.}
 		\label{fig:Rules of RKIP using T-S.}
 	\end{center}
 \end{figure}
 
 
 \subsubsection{Simulation result}
-In this example, we use only ODEs and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
+In this example, we give the results of the modes: only ODEs and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
 
-When using T-S, we choose to change the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP to FIS. The result is shown as Figure \ref{fig:Simulation result of RKIP using T-S.}.
+When using T-S, we choose to assign an FIS to the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP. The result is shown as Figure \ref{fig:Simulation result of RKIP using T-S.}.
 
-As we can see, the results are almost consisitent. Pay attention to the bold blue curves of Figure \ref{fig:Simulation result of RKIP using only ODEs.} and Figure \ref{fig:Simulation result of RKIP using T-S.}. The final result is a little different. But we can adjust the rules to get a better result.
+As we can see, the results are almost consistent. Pay attention to the bold blue curves of Figure \ref{fig:Simulation result of RKIP using only ODEs.} and Figure \ref{fig:Simulation result of RKIP using T-S.}. The final result is a little different. But we can adjust the rules to get a better result.
 
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig29}
-		\caption{Simulation result of RKIP using only ODEs.}
+		\caption{Simulation result of the RKIP pathway model using only ODEs.}
 		\label{fig:Simulation result of RKIP using only ODEs.}
 	\end{center}
 \end{figure}
@@ -877,7 +896,7 @@ As we can see, the results are almost consisitent. Pay attention to the bold blu
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig30}
-		\caption{Simulation result of RKIP using T-S.}
+		\caption{Simulation result of the RKIP pathway model using the T-S setting.}
 		\label{fig:Simulation result of RKIP using T-S.}
 	\end{center}
 \end{figure}
@@ -904,7 +923,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 
 \begin{table}[!hbt]
 	\begin{center}
-		\caption{Transition functions of 6-MP metabolism.}
+		\caption{Transition functions of the 6-MP metabolism model.}
 		\label{Transition functions of 6-MP metabolism}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -951,7 +970,7 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 	\begin{center}
 		\includegraphics[width=0.45\columnwidth]{fig57}
 		\includegraphics[width=0.45\columnwidth]{fig58}
-		\caption{Membership functions of 6-MP metabolism using Mamdani.}
+		\caption{Membership functions of the 6-MP metabolism model using the Mamdani setting.}
 		\label{fig:Membership functions of 6-MP metabolism using Mamdani.}
 	\end{center}
 \end{figure}
@@ -959,14 +978,14 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig59}
-		\caption{Rules of 6-MP metabolism using Mamdani.}
+		\caption{Rules of the 6-MP metabolism model using the Mamdani setting.}
 		\label{fig:Rules of 6-MP metabolism using Mamdani.}
 	\end{center}
 \end{figure}
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig57}
-		\caption{Membership functions of 6-MP metabolism using T-S.}
+		\caption{Membership functions of the 6-MP metabolism model using the T-S setting.}
 		\label{fig:Membership functions of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
@@ -974,25 +993,25 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig60}
-		\caption{Rules of 6-MP metabolism using T-S.}
+		\caption{Rules of the 6-MP metabolism model using the T-S setting.}
 		\label{fig:Rules of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
 
 
 \subsubsection{Simulation result}
-In this example, we use only ODEs, Mamdani, and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
+In this example, we give the results of three modes: only ODEs, Mamdani, and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
 
-When using Mamdani, we choose to change the arc from k0 to MPin to FIS. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using Mamdani.}.
+When using Mamdani, we choose to assign an FIS to the arc from k0 to MPin. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using Mamdani.}.
 
-When using T-S, we choose to change the arc from k0 to MPin to FIS. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
+When using T-S, we choose to assign an FIS to the arc from k0 to MPin. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
 
 As we can see, the results are almost the same.
 
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig54}
-		\caption{Simulation result of 6-MP metabolism using only ODEs.}
+		\caption{Simulation result of the 6-MP metabolism model using only ODEs.}
 		\label{fig:Simulation result of 6-MP metabolism using only ODEs.}
 	\end{center}
 \end{figure}
@@ -1000,7 +1019,7 @@ As we can see, the results are almost the same.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig55}
-		\caption{Simulation result of 6-MP metabolism using Mamdani.}
+		\caption{Simulation result of the 6-MP metabolism model using the Mamdani setting.}
 		\label{fig:Simulation result of 6-MP metabolism using Mamdani.}
 	\end{center}
 \end{figure}
@@ -1008,7 +1027,7 @@ As we can see, the results are almost the same.
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig56}
-		\caption{Simulation result of 6-MP metabolism using T-S.}
+		\caption{Simulation result of the 6-MP metabolism model using the T-S setting.}
 		\label{fig:Simulation result of 6-MP metabolism using T-S.}
 	\end{center}
 \end{figure}
