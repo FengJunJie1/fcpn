@@ -3,8 +3,7 @@
 \contentsline {subsection}{\numberline {1.2}Continuous Petri nets}{3}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Fuzzy logic}{4}{subsection.1.3}
 \contentsline {subsubsection}{\numberline {1.3.1}Mamdani fuzzy inference}{4}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Mamdani Fuzzy Inference}{5}{subsubsection.1.3.2}
-\contentsline {subsubsection}{\numberline {1.3.3}T-S Fuzzy Inference}{7}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.2}T-S Fuzzy Inference}{7}{subsubsection.1.3.2}
 \contentsline {subsection}{\numberline {1.4}Fuzzy continuous Petri nets}{7}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}Our tool}{7}{subsection.1.5}
 \contentsline {subsection}{\numberline {1.6}Features - overview}{9}{subsection.1.6}
