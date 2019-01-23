@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2018.5.17)  23 JAN 2019 09:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2018.5.17)  23 JAN 2019 09:50
 entering extended mode
 **./Manual.tex
 (Manual.tex
@@ -344,368 +344,369 @@ Package pdftex.def Info: fig1.png used on input line 244.
 File: fig2.png Graphic file (type png)
  <use fig2.png>
 Package pdftex.def Info: fig2.png used on input line 268.
-(pdftex.def)             Requested size: 345.0pt x 164.72513pt.
+(pdftex.def)             Requested size: 207.0021pt x 98.83195pt.
 
 <fig3.png, id=325, 457.71pt x 499.8675pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
 Package pdftex.def Info: fig3.png used on input line 289.
-(pdftex.def)             Requested size: 345.0pt x 376.79128pt.
- [11 <./fig2.png>] <fig4.png, id=335, 457.71pt x 499.8675pt>
+(pdftex.def)             Requested size: 276.00105pt x 301.43303pt.
+ <fig4.png, id=328, 457.71pt x 499.8675pt>
 File: fig4.png Graphic file (type png)
-
-<use fig4.png>
+ <use fig4.png>
 Package pdftex.def Info: fig4.png used on input line 310.
-(pdftex.def)             Requested size: 345.0pt x 376.79128pt.
- [12 <./fig3.png>] <fig5.png, id=344, 457.71pt x 499.8675pt>
+(pdftex.def)             Requested size: 276.00105pt x 301.43303pt.
+
+[11 <./fig2.png>] <fig5.png, id=338, 457.71pt x 499.8675pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
 Package pdftex.def Info: fig5.png used on input line 331.
-(pdftex.def)             Requested size: 345.0pt x 376.79128pt.
+(pdftex.def)             Requested size: 276.00105pt x 301.43303pt.
 
-<fig7.png, id=345, 896.34875pt x 571.13374pt>
+<fig7.png, id=339, 896.34875pt x 571.13374pt>
 File: fig7.png Graphic file (type png)
  <use fig7.png>
 Package pdftex.def Info: fig7.png used on input line 344.
 (pdftex.def)             Requested size: 345.0pt x 219.82181pt.
- [13 <./fig4.png>]
+ [12 <./fig3.png>]
 Overfull \hbox (26.93393pt too wide) in paragraph at lines 361--362
 []\OT1/cmr/m/n/10 Make sure we only al-low to spec-ify one out-put vari-able whose type is PN[]OUTPUT,
  []
 
-[14 <./fig5.png>] <fig8.png, id=358, 900.36375pt x 573.14125pt>
+<fig8.png, id=347, 900.36375pt x 573.14125pt>
 File: fig8.png Graphic file (type png)
  <use fig8.png>
 Package pdftex.def Info: fig8.png used on input line 365.
 (pdftex.def)             Requested size: 345.0pt x 219.61497pt.
- [15 <./fig7.png> <./fig8.png>]
-<fig9.png, id=370, 730.73pt x 749.80125pt>
+ [13 <./fig4.png>]
+<fig9.png, id=358, 730.73pt x 749.80125pt>
 File: fig9.png Graphic file (type png)
  <use fig9.png>
 Package pdftex.def Info: fig9.png used on input line 386.
-(pdftex.def)             Requested size: 241.49895pt x 247.80128pt.
- <fig9_1.png, id=371, 730.73pt x 749.80125pt>
+(pdftex.def)             Requested size: 276.00105pt x 283.19984pt.
+ <fig9_1.png, id=359, 730.73pt x 749.80125pt>
 File: fig9_1.png Graphic file (type png)
  <use fig9_1.png>
 Package pdftex.def Info: fig9_1.png used on input line 394.
-(pdftex.def)             Requested size: 241.49895pt x 247.80128pt.
+(pdftex.def)             Requested size: 276.00105pt x 283.19984pt.
 
-<fig9_2.png, id=372, 730.73pt x 749.80125pt>
+<fig9_2.png, id=360, 730.73pt x 749.80125pt>
 File: fig9_2.png Graphic file (type png)
  <use fig9_2.png>
 Package pdftex.def Info: fig9_2.png used on input line 402.
-(pdftex.def)             Requested size: 241.49895pt x 247.80128pt.
- [16 <./fig9.png>]
-
-LaTeX Warning: Text page 17 contains only floats.
-
-
-Overfull \vbox (1.49146pt too high) has occurred while \output is active []
-
- [17 <./fig9_1.png> <./fig9_2.png>]
-<fig10.png, id=389, 900.36375pt x 734.745pt>
+(pdftex.def)             Requested size: 276.00105pt x 283.19984pt.
+ [14 <./fig5.png>] [15 <./fig7.png> <./fig8.png>] [16 <./fig9.png>] [17 <./fig9_1.png>] [18 <./fig9_2.png>] <fig10.png, 
+id=393, 900.36375pt x 734.745pt>
 File: fig10.png Graphic file (type png)
  <use fig10.png>
 Package pdftex.def Info: fig10.png used on input line 426.
 (pdftex.def)             Requested size: 345.0pt x 281.53795pt.
- <fig6.png, id=391, 2569.6pt x 1395.2125pt>
+
+<fig6.png, id=395, 2569.6pt x 1395.2125pt>
 File: fig6.png Graphic file (type png)
  <use fig6.png>
 Package pdftex.def Info: fig6.png used on input line 436.
 (pdftex.def)             Requested size: 345.0pt x 187.32367pt.
+ [19
 
-[18
-
- <./fig10.png>] [19 <./fig6.png>] <fig11.png, id=405, 900.36375pt x 573.14125pt>
+ <./fig10.png>] [20 <./fig6.png>]
+<fig11.png, id=409, 900.36375pt x 573.14125pt>
 File: fig11.png Graphic file (type png)
  <use fig11.png>
 Package pdftex.def Info: fig11.png used on input line 450.
-(pdftex.def)             Requested size: 241.49895pt x 153.72699pt.
-
-<fig12.png, id=407, 1478.52374pt x 725.71124pt>
+(pdftex.def)             Requested size: 276.00105pt x 175.69548pt.
+ <fig12.png, id=411, 1478.52374pt x 725.71124pt>
 File: fig12.png Graphic file (type png)
- <use fig12.png>
+
+<use fig12.png>
 Package pdftex.def Info: fig12.png used on input line 462.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- [20
+ [21
 
- <./fig11.png> <./fig12.png>]
-<fig13.png, id=417, 1170.3725pt x 541.02126pt>
+ <./fig11.png> <./fig12.png>] <fig13.png, id=421, 1170.3725pt x 541.02126pt>
 File: fig13.png Graphic file (type png)
  <use fig13.png>
 Package pdftex.def Info: fig13.png used on input line 488.
 (pdftex.def)             Requested size: 345.0pt x 159.4843pt.
- <fig14.png, id=418, 670.505pt x 495.8525pt>
-File: fig14.png Graphic file (type png)
 
-<use fig14.png>
+<fig14.png, id=422, 670.505pt x 495.8525pt>
+File: fig14.png Graphic file (type png)
+ <use fig14.png>
 Package pdftex.def Info: fig14.png used on input line 499.
 (pdftex.def)             Requested size: 345.0pt x 255.12856pt.
- <fig18.png, id=419, 787.94376pt x 493.845pt>
+ <fig18.png, id=423, 787.94376pt x 493.845pt>
 File: fig18.png Graphic file (type png)
- <use fig18.png>
+
+<use fig18.png>
 Package pdftex.def Info: fig18.png used on input line 507.
 (pdftex.def)             Requested size: 345.0pt x 216.22997pt.
- [21
+ [22
 
- <./fig13.png>] [22 <./fig14.png> <./fig18.png>] <fig15.png, id=434, 667.49374pt x 492.84125pt>
+ <./fig13.png>] [23 <./fig14.png> <./fig18.png>] <fig15.png, id=438, 667.49374pt x 492.84125pt>
 File: fig15.png Graphic file (type png)
- <use fig15.png>
+
+<use fig15.png>
 Package pdftex.def Info: fig15.png used on input line 528.
 (pdftex.def)             Requested size: 345.0pt x 254.73729pt.
- <fig19.png, id=435, 1170.3725pt x 541.02126pt>
+ <fig19.png, id=439, 1170.3725pt x 541.02126pt>
 File: fig19.png Graphic file (type png)
-
-<use fig19.png>
+ <use fig19.png>
 Package pdftex.def Info: fig19.png used on input line 539.
 (pdftex.def)             Requested size: 345.0pt x 159.4843pt.
- <fig16.png, id=436, 1170.3725pt x 541.02126pt>
+
+<fig16.png, id=440, 1170.3725pt x 541.02126pt>
 File: fig16.png Graphic file (type png)
  <use fig16.png>
 Package pdftex.def Info: fig16.png used on input line 550.
 (pdftex.def)             Requested size: 345.0pt x 159.4843pt.
-
-<fig17.png, id=437, 1170.3725pt x 541.02126pt>
+ <fig17.png, id=441, 1170.3725pt x 541.02126pt>
 File: fig17.png Graphic file (type png)
- <use fig17.png>
+
+<use fig17.png>
 Package pdftex.def Info: fig17.png used on input line 558.
 (pdftex.def)             Requested size: 345.0pt x 159.4843pt.
- [23 <./fig15.png>] [24 <./fig19.png> <./fig16.png> <./fig17.png>] <fig20.png, id=456, 1084.05pt x 302.12875pt>
+ [24 <./fig15.png>] [25 <./fig19.png> <./fig16.png> <./fig17.png>]
+<fig20.png, id=462, 1084.05pt x 302.12875pt>
 File: fig20.png Graphic file (type png)
  <use fig20.png>
-Package pdftex.def Info: fig20.png used on input line 582.
+Package pdftex.def Info: fig20.png used on input line 584.
 (pdftex.def)             Requested size: 345.0pt x 96.153pt.
- <fig31.png, id=457, 726.715pt x 740.7675pt>
+ <fig31.png, id=463, 726.715pt x 740.7675pt>
 File: fig31.png Graphic file (type png)
 
 <use fig31.png>
-Package pdftex.def Info: fig31.png used on input line 618.
+Package pdftex.def Info: fig31.png used on input line 620.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
- <fig32.png, id=458, 726.715pt x 740.7675pt>
+ <fig32.png, id=464, 726.715pt x 740.7675pt>
 File: fig32.png Graphic file (type png)
  <use fig32.png>
-Package pdftex.def Info: fig32.png used on input line 619.
+Package pdftex.def Info: fig32.png used on input line 621.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
 
-<fig33.png, id=459, 1478.52374pt x 725.71124pt>
+<fig33.png, id=465, 1478.52374pt x 725.71124pt>
 File: fig33.png Graphic file (type png)
  <use fig33.png>
-Package pdftex.def Info: fig33.png used on input line 627.
+Package pdftex.def Info: fig33.png used on input line 629.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- <fig34.png, id=460, 726.715pt x 740.7675pt>
+ <fig34.png, id=466, 726.715pt x 740.7675pt>
 File: fig34.png Graphic file (type png)
 
 <use fig34.png>
-Package pdftex.def Info: fig34.png used on input line 635.
+Package pdftex.def Info: fig34.png used on input line 637.
 (pdftex.def)             Requested size: 345.0pt x 351.67606pt.
- <fig35.png, id=461, 1478.52374pt x 725.71124pt>
+ <fig35.png, id=467, 1478.52374pt x 725.71124pt>
 File: fig35.png Graphic file (type png)
  <use fig35.png>
-Package pdftex.def Info: fig35.png used on input line 643.
+Package pdftex.def Info: fig35.png used on input line 645.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
 
-<fig36.png, id=462, 726.715pt x 740.7675pt>
+<fig36.png, id=468, 726.715pt x 740.7675pt>
 File: fig36.png Graphic file (type png)
  <use fig36.png>
-Package pdftex.def Info: fig36.png used on input line 651.
+Package pdftex.def Info: fig36.png used on input line 653.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
- <fig37.png, id=463, 726.715pt x 740.7675pt>
+ <fig37.png, id=469, 726.715pt x 740.7675pt>
 File: fig37.png Graphic file (type png)
  <use fig37.png>
-Package pdftex.def Info: fig37.png used on input line 652.
+Package pdftex.def Info: fig37.png used on input line 654.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
 
-<fig38.png, id=464, 1478.52374pt x 725.71124pt>
+<fig38.png, id=470, 1478.52374pt x 725.71124pt>
 File: fig38.png Graphic file (type png)
  <use fig38.png>
-Package pdftex.def Info: fig38.png used on input line 660.
+Package pdftex.def Info: fig38.png used on input line 662.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- <fig39.png, id=465, 726.715pt x 740.7675pt>
+ <fig39.png, id=471, 726.715pt x 740.7675pt>
 File: fig39.png Graphic file (type png)
 
 <use fig39.png>
-Package pdftex.def Info: fig39.png used on input line 668.
+Package pdftex.def Info: fig39.png used on input line 670.
 (pdftex.def)             Requested size: 310.4979pt x 316.51184pt.
- <fig40.png, id=466, 1478.52374pt x 725.71124pt>
+ <fig40.png, id=472, 1478.52374pt x 725.71124pt>
 File: fig40.png Graphic file (type png)
  <use fig40.png>
-Package pdftex.def Info: fig40.png used on input line 676.
+Package pdftex.def Info: fig40.png used on input line 678.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- [25
+ [26
 
- <./fig20.png>] [26 <./fig31.png> <./fig32.png> <./fig33.png>] [27 <./fig34.png>] [28 <./fig35.png> <./fig36.png> <./fig
-37.png>] [29 <./fig38.png> <./fig39.png>] [30 <./fig40.png>] <fig21.png, id=518, 635.37375pt x 428.60126pt>
+ <./fig20.png>] [27 <./fig31.png> <./fig32.png> <./fig33.png>] [28 <./fig34.png>] [29 <./fig35.png> <./fig36.png> <./fig
+37.png>] [30 <./fig38.png> <./fig39.png>] [31 <./fig40.png>] <fig21.png, id=524, 635.37375pt x 428.60126pt>
 File: fig21.png Graphic file (type png)
  <use fig21.png>
-Package pdftex.def Info: fig21.png used on input line 699.
+Package pdftex.def Info: fig21.png used on input line 701.
 (pdftex.def)             Requested size: 345.0pt x 232.72958pt.
 
-<fig22.png, id=519, 639.38875pt x 431.6125pt>
+<fig22.png, id=525, 639.38875pt x 431.6125pt>
 File: fig22.png Graphic file (type png)
  <use fig22.png>
-Package pdftex.def Info: fig22.png used on input line 707.
+Package pdftex.def Info: fig22.png used on input line 709.
 (pdftex.def)             Requested size: 345.0pt x 232.88945pt.
- <fig23.png, id=520, 640.3925pt x 429.605pt>
+ <fig23.png, id=526, 640.3925pt x 429.605pt>
 File: fig23.png Graphic file (type png)
 
 <use fig23.png>
-Package pdftex.def Info: fig23.png used on input line 715.
+Package pdftex.def Info: fig23.png used on input line 717.
 (pdftex.def)             Requested size: 345.0pt x 231.44571pt.
- <fig24.png, id=521, 636.3775pt x 434.62375pt>
+ <fig24.png, id=527, 636.3775pt x 434.62375pt>
 File: fig24.png Graphic file (type png)
  <use fig24.png>
-Package pdftex.def Info: fig24.png used on input line 723.
+Package pdftex.def Info: fig24.png used on input line 725.
 (pdftex.def)             Requested size: 345.0pt x 235.62178pt.
- [31
+ [32
 
- <./fig21.png>] [32 <./fig22.png> <./fig23.png>] [33 <./fig24.png>] <fig25.png, id=545, 564.1075pt x 483.8075pt>
+ <./fig21.png>] [33 <./fig22.png> <./fig23.png>] [34 <./fig24.png>] <fig25.png, id=550, 564.1075pt x 483.8075pt>
 File: fig25.png Graphic file (type png)
  <use fig25.png>
-Package pdftex.def Info: fig25.png used on input line 742.
-(pdftex.def)             Requested size: 345.0pt x 295.88991pt.
+Package pdftex.def Info: fig25.png used on input line 744.
+(pdftex.def)             Requested size: 276.00105pt x 236.7134pt.
 
-<fig41.png, id=546, 726.715pt x 740.7675pt>
+<fig41.png, id=551, 726.715pt x 740.7675pt>
 File: fig41.png Graphic file (type png)
  <use fig41.png>
-Package pdftex.def Info: fig41.png used on input line 768.
+Package pdftex.def Info: fig41.png used on input line 770.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
- <fig42.png, id=547, 726.715pt x 740.7675pt>
+ <fig42.png, id=552, 726.715pt x 740.7675pt>
 File: fig42.png Graphic file (type png)
  <use fig42.png>
-Package pdftex.def Info: fig42.png used on input line 769.
+Package pdftex.def Info: fig42.png used on input line 771.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
 
-<fig43.png, id=548, 1478.52374pt x 725.71124pt>
+<fig43.png, id=553, 1478.52374pt x 725.71124pt>
 File: fig43.png Graphic file (type png)
  <use fig43.png>
-Package pdftex.def Info: fig43.png used on input line 777.
+Package pdftex.def Info: fig43.png used on input line 779.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- <fig26.png, id=551, 635.37375pt x 431.6125pt>
+ [35
+
+ <./fig25.png>]
+<fig26.png, id=564, 635.37375pt x 431.6125pt>
 File: fig26.png Graphic file (type png)
-
-<use fig26.png>
-Package pdftex.def Info: fig26.png used on input line 792.
+ <use fig26.png>
+Package pdftex.def Info: fig26.png used on input line 794.
 (pdftex.def)             Requested size: 345.0pt x 234.36469pt.
- [34
-
- <./fig25.png>] <fig27.png, id=561, 636.3775pt x 427.5975pt>
+ <fig27.png, id=565, 636.3775pt x 427.5975pt>
 File: fig27.png Graphic file (type png)
- <use fig27.png>
-Package pdftex.def Info: fig27.png used on input line 800.
+
+<use fig27.png>
+Package pdftex.def Info: fig27.png used on input line 802.
 (pdftex.def)             Requested size: 345.0pt x 231.81265pt.
- [35 <./fig41.png> <./fig42.png> <./fig43.png>] [36 <./fig26.png> <./fig27.png>] <fig28.png, id=581, 871.255pt x 781.921
-25pt>
+ [36 <./fig41.png> <./fig42.png> <./fig43.png>] [37 <./fig26.png> <./fig27.png>]
+<fig28.png, id=587, 871.255pt x 781.92125pt>
 File: fig28.png Graphic file (type png)
  <use fig28.png>
-Package pdftex.def Info: fig28.png used on input line 822.
+Package pdftex.def Info: fig28.png used on input line 824.
 (pdftex.def)             Requested size: 345.0pt x 309.62506pt.
-
-<fig44.png, id=582, 726.715pt x 740.7675pt>
+ <fig44.png, id=588, 726.715pt x 740.7675pt>
 File: fig44.png Graphic file (type png)
- <use fig44.png>
-Package pdftex.def Info: fig44.png used on input line 864.
+
+<use fig44.png>
+Package pdftex.def Info: fig44.png used on input line 866.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
- <fig45.png, id=583, 726.715pt x 740.7675pt>
+ <fig45.png, id=589, 726.715pt x 740.7675pt>
 File: fig45.png Graphic file (type png)
  <use fig45.png>
-Package pdftex.def Info: fig45.png used on input line 865.
+Package pdftex.def Info: fig45.png used on input line 867.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
 
-<fig46.png, id=584, 1478.52374pt x 725.71124pt>
+<fig46.png, id=590, 1478.52374pt x 725.71124pt>
 File: fig46.png Graphic file (type png)
  <use fig46.png>
-Package pdftex.def Info: fig46.png used on input line 873.
+Package pdftex.def Info: fig46.png used on input line 875.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
 
-Overfull \hbox (63.87178pt too wide) in paragraph at lines 883--884
+Overfull \hbox (63.87178pt too wide) in paragraph at lines 885--886
 []\OT1/cmr/m/n/10 When us-ing T-S, we choose to as-sign an FIS to the arc from k3 to Raf[]1Star[]RKIP[]ERK[]PP.
  []
 
-[37
+[38
 
- <./fig28.png>] <fig29.png, id=600, 608.2725pt x 346.29375pt>
+ <./fig28.png>] <fig29.png, id=605, 608.2725pt x 346.29375pt>
 File: fig29.png Graphic file (type png)
  <use fig29.png>
-Package pdftex.def Info: fig29.png used on input line 889.
+Package pdftex.def Info: fig29.png used on input line 891.
 (pdftex.def)             Requested size: 345.0pt x 196.41722pt.
 
-<fig30.png, id=601, 451.6875pt x 253.69781pt>
+<fig30.png, id=606, 451.6875pt x 253.69781pt>
 File: fig30.png Graphic file (type png)
  <use fig30.png>
-Package pdftex.def Info: fig30.png used on input line 897.
+Package pdftex.def Info: fig30.png used on input line 899.
 (pdftex.def)             Requested size: 345.0pt x 193.78786pt.
- [38 <./fig44.png> <./fig45.png>] [39 <./fig46.png> <./fig29.png>] [40 <./fig30.png>] <fig53.png, id=624, 1985.4175pt x 
+ [39 <./fig44.png> <./fig45.png>] [40 <./fig46.png> <./fig29.png>] [41 <./fig30.png>] <fig53.png, id=629, 1985.4175pt x 
 667.49374pt>
 File: fig53.png Graphic file (type png)
  <use fig53.png>
-Package pdftex.def Info: fig53.png used on input line 917.
+Package pdftex.def Info: fig53.png used on input line 919.
 (pdftex.def)             Requested size: 345.0pt x 115.98816pt.
 
-<fig57.png, id=625, 726.715pt x 740.7675pt>
+<fig57.png, id=630, 726.715pt x 740.7675pt>
 File: fig57.png Graphic file (type png)
  <use fig57.png>
-Package pdftex.def Info: fig57.png used on input line 970.
+Package pdftex.def Info: fig57.png used on input line 972.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
- <fig58.png, id=626, 726.715pt x 740.7675pt>
+ <fig58.png, id=631, 726.715pt x 740.7675pt>
 File: fig58.png Graphic file (type png)
  <use fig58.png>
-Package pdftex.def Info: fig58.png used on input line 971.
+Package pdftex.def Info: fig58.png used on input line 973.
 (pdftex.def)             Requested size: 155.24895pt x 158.24461pt.
 
-<fig59.png, id=627, 1478.52374pt x 725.71124pt>
+<fig59.png, id=632, 1478.52374pt x 725.71124pt>
 File: fig59.png Graphic file (type png)
  <use fig59.png>
-Package pdftex.def Info: fig59.png used on input line 979.
+Package pdftex.def Info: fig59.png used on input line 981.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
 File: fig57.png Graphic file (type png)
  <use fig57.png>
-Package pdftex.def Info: fig57.png used on input line 986.
+Package pdftex.def Info: fig57.png used on input line 988.
 (pdftex.def)             Requested size: 345.0pt x 351.67606pt.
 
-<fig60.png, id=628, 1478.52374pt x 725.71124pt>
+<fig60.png, id=633, 1478.52374pt x 725.71124pt>
 File: fig60.png Graphic file (type png)
  <use fig60.png>
-Package pdftex.def Info: fig60.png used on input line 994.
+Package pdftex.def Info: fig60.png used on input line 996.
 (pdftex.def)             Requested size: 345.0pt x 169.33516pt.
- [41
+ [42
 
  <./fig53.png>]
-<fig54.png, id=641, 558.888pt x 364.36125pt>
+<fig54.png, id=646, 558.888pt x 364.36125pt>
 File: fig54.png Graphic file (type png)
  <use fig54.png>
-Package pdftex.def Info: fig54.png used on input line 1012.
+Package pdftex.def Info: fig54.png used on input line 1014.
 (pdftex.def)             Requested size: 345.0pt x 224.92313pt.
- <fig55.png, id=642, 557.6835pt x 364.9635pt>
+ <fig55.png, id=647, 557.6835pt x 364.9635pt>
 File: fig55.png Graphic file (type png)
 
 <use fig55.png>
-Package pdftex.def Info: fig55.png used on input line 1020.
+Package pdftex.def Info: fig55.png used on input line 1022.
 (pdftex.def)             Requested size: 345.0pt x 225.78496pt.
- <fig56.png, id=643, 559.49025pt x 363.759pt>
+ <fig56.png, id=648, 559.49025pt x 363.759pt>
 File: fig56.png Graphic file (type png)
  <use fig56.png>
-Package pdftex.def Info: fig56.png used on input line 1028.
+Package pdftex.def Info: fig56.png used on input line 1030.
 (pdftex.def)             Requested size: 345.0pt x 224.31268pt.
- [42 <./fig57.png> <./fig58.png> <./fig59.png>] [43] [44 <./fig60.png> <./fig54.png>] [45 <./fig55.png> <./fig56.png>] (
+ [43 <./fig57.png> <./fig58.png> <./fig59.png>] [44] [45 <./fig60.png> <./fig54.png>] [46 <./fig55.png> <./fig56.png>] (
 Manual.bbl
 Missing character: There is no ¨ in font cmr10!
- [46
+ [47
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1051.
- [47]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1051.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1053.
+ [48]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1053.
  (Manual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1051.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1051.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1053.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1053.
 Package rerunfilecheck Info: File `Manual.out' has not changed.
-(rerunfilecheck)             Checksum: AE66F39747B56E16F9350894496BBEAB;2775.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1051.
+(rerunfilecheck)             Checksum: 3234A6BCD761DC56C9B8D64C45DAFE1E;2776.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1053.
  ) 
 Here is how much of TeX's memory you used:
- 6338 strings out of 493323
- 91880 string characters out of 3140368
- 182943 words of memory out of 3000000
+ 6339 strings out of 493323
+ 91887 string characters out of 3140368
+ 182972 words of memory out of 3000000
  9601 multiletter control sequences out of 15000+200000
  9369 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -717,9 +718,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MySoftware/MiKTeX 2.9/fonts/t
 Software/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/MySoftware/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y10.pfb><C:/MySoftware/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/MySoftware/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmti10.pfb>
-Output written on Manual.pdf (47 pages, 2786712 bytes).
+Output written on Manual.pdf (48 pages, 2787588 bytes).
 PDF statistics:
- 758 PDF objects out of 1000 (max. 8388607)
- 168 named destinations out of 1000 (max. 500000)
+ 764 PDF objects out of 1000 (max. 8388607)
+ 169 named destinations out of 1000 (max. 500000)
  631 words of extra memory for PDF output out of 10000 (max. 10000000)
 

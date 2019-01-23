@@ -192,7 +192,7 @@ The result might be a little different from ODE. If the values of $H_2$ and $O_2
 \end{figure}
 
 
-\subsection{Our tool}
+\subsection{FCPN tool}
 
 The tool provides modeling and simulation functions of fuzzy continuous Petri nets for researchers in the field of systems biology.
 It includes three main functions: continuous Petri net modeling, fuzzy (Mamdani \& T-S) modeling, and hybrid simulation. 
@@ -265,7 +265,7 @@ We can draw a net using the following steps taking Figure \ref{fig:drawnet} as a
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{fig2}
+		\includegraphics[width=0.6\columnwidth]{fig2}
 		\caption{Draw the net.}
 		\label{fig:drawnet}
 	\end{center}
@@ -286,7 +286,7 @@ For example, in Figure \ref{fig:drawnet}, we change the names of p0, p1, and p2 
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{fig3}
+		\includegraphics[width=0.8\columnwidth]{fig3}
 		\caption{Edit a place.}
 		\label{fig:editplace}
 	\end{center}
@@ -307,7 +307,7 @@ For example, in Figure \ref{fig:drawnet}, we change the function of t0 from the 
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{fig4}
+		\includegraphics[width=0.8\columnwidth]{fig4}
 		\caption{Edit a ransition.}
 		\label{fig:edittransition}
 	\end{center}
@@ -328,7 +328,7 @@ For example, in Figure \ref{fig:drawnet}, we change the expression of arc from p
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{fig5}
+		\includegraphics[width=0.8\columnwidth]{fig5}
 		\caption{Edit an arc.}
 		\label{fig:editarc}
 	\end{center}
@@ -383,7 +383,7 @@ We provide the user to choose the number (2, 3, 5, 7) of linguistic terms. The m
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=0.7\columnwidth]{fig9}
+		\includegraphics[width=0.8\columnwidth]{fig9}
 		\caption{Membership functions of H2.}
 		\label{fig:Membership functions of H2}
 	\end{center}
@@ -391,7 +391,7 @@ We provide the user to choose the number (2, 3, 5, 7) of linguistic terms. The m
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=0.7\columnwidth]{fig9_1}
+		\includegraphics[width=0.8\columnwidth]{fig9_1}
 		\caption{Membership functions of O2.}
 		\label{fig:Membership functions of O2}
 	\end{center}
@@ -399,7 +399,7 @@ We provide the user to choose the number (2, 3, 5, 7) of linguistic terms. The m
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=0.7\columnwidth]{fig9_2}
+		\includegraphics[width=0.8\columnwidth]{fig9_2}
 		\caption{Membership functions of H2O.}
 		\label{fig:Membership functions of H2O}
 	\end{center}
@@ -434,7 +434,7 @@ Now left click the OK button of the FIS editor and left click the OK button of t
 \begin{figure}[!hbt]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{fig6}
-		\caption{After FIS.}
+		\caption{The constructed FCPN model with an FIS.}
 		\label{fig:After FIS}
 	\end{center}
 \end{figure}
@@ -447,8 +447,8 @@ First, in the T-S setting, when left clicking the Edit button of variable whose 
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=0.7\columnwidth]{fig11}
-		\caption{T-S FIS.}
+		\includegraphics[width=0.8\columnwidth]{fig11}
+		\caption{T-S FIS setting.}
 		\label{fig:T-S FIS}
 	\end{center}
 \end{figure}
@@ -569,6 +569,8 @@ Different tools are provided which are located at the center of the bottom. The 
 \section{Examples}
 In this section, we will show four examples to illustrate our tool. And we name the file of an example with A\_B\_C\_D, where A is the name of the example, B is the FIS type we used, C is the interval end of the simulation, and D is the step size. The default interval start is 0 for a simulation. 
 
+The models of all the examples can be downloaded from \href{https://github.com/liufei2016/FCPN}{Examples}.
+
 
 \subsection{1D Diffusion Reaction}
 
@@ -687,10 +689,10 @@ In this example, we give the results of the four modes: no FIS (only ODEs), Mamd
 
 When using the Mamdani setting, we choose to assign an FIS to the arc from t\_5\_4 to S\_4. The result is shown in Figure \ref{fig:Simulation result of 1D diffusion reaction using Mamdani.}.
 
-When using T-S, we choose to assign an FIS to the arc the arc from t\_4\_5 to S\_5. The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using T-S.}.
+When using T-S, we choose to assign an FIS to the arc the arc from t\_4\_5 to S\_5. The result is shown in Figure \ref{fig:Simulation result of 1D diffusion reaction using T-S.}.
 
 When using hybrid FIS, we choose to assign an mamdani FIS to the arc from t\_5\_4 to S\_4 and to assign a T-S FIS to the arc from t\_4\_5 to S\_5. 
-The result is shown as Figure \ref{fig:Simulation result of 1D diffusion reaction using hybrid FIS.}.
+The result is shown in Figure \ref{fig:Simulation result of 1D diffusion reaction using hybrid FIS.}.
 
 In the mode of only ODEs, the values of all variables eventually reach 2 while in the other three modes, the final values of the variables are not 2, but are very close to 2. And the trends of all four curves are consistent.
 
@@ -739,7 +741,7 @@ The model is shown in Figure \ref{fig:The model of enzyme}.
 
 \begin{figure}[!hbt]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{fig25}
+		\includegraphics[width=0.8\columnwidth]{fig25}
 		\caption{The model of enzymatic reaction.}
 		\label{fig:The model of enzyme}
 	\end{center}
@@ -783,7 +785,7 @@ The model is shown in Figure \ref{fig:The model of enzyme}.
 \subsubsection{Simulation result}
 In this example, we give the result of two modes: only ODEs and Mamdani. The result of only ODEs is shown in Figure \ref{fig:Simulation result of enzyme using only ODEs.}.
 
-When using the Mamdani setting, we choose to assign an FIS to the arc from Synthesis to Product. The result is shown as Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
+When using the Mamdani setting, we choose to assign an FIS to the arc from Synthesis to Product. The result is shown in Figure \ref{fig:Simulation result of enzyme using Mamdani.}.
 
 As we can see, the results are almost the same.
 
@@ -815,7 +817,7 @@ As we can see, the results are almost the same.
 The Raf kinase inhibitor protein (RKIP) \cite{CSK+03} is a kinase inhibitor protein that regulates many signaling pathways within the cell. RKIP is a member of the phosphatidylethanolamine-binding protein family and has displayed disruptive regulation on the Raf-1-MEK1/2, ERK1/2 and NF-kappaB signalling pathways, by interaction with the Raf-1 kinase. 
 
 \subsubsection{Model}
-The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model given in \cite{GH06}.
+The model is shown in Figure \ref{fig:The model of RKIP}, based on the CPN model given in \cite{GH06}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -878,9 +880,9 @@ The model is shown as Figure \ref{fig:The model of RKIP}, based on the CPN model
 
 
 \subsubsection{Simulation result}
-In this example, we give the results of the modes: only ODEs and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
+In this example, we give the results of the modes: only ODEs and T-S. The result of only ODEs is shown in Figure \ref{fig:Simulation result of RKIP using only ODEs.}.
 
-When using T-S, we choose to assign an FIS to the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP. The result is shown as Figure \ref{fig:Simulation result of RKIP using T-S.}.
+When using T-S, we choose to assign an FIS to the arc from k3 to Raf\_1Star\_RKIP\_ERK\_PP. The result is shown in Figure \ref{fig:Simulation result of RKIP using T-S.}.
 
 As we can see, the results are almost consistent. Pay attention to the bold blue curves of Figure \ref{fig:Simulation result of RKIP using only ODEs.} and Figure \ref{fig:Simulation result of RKIP using T-S.}. The final result is a little different. But we can adjust the rules to get a better result.
 
@@ -910,7 +912,7 @@ As we can see, the results are almost consistent. Pay attention to the bold blue
 6-Mercaptopurine (6-MP) is one of the important chemotherapy drugs used for treating acute lymphocytic leukaemia (ALL). According to the model given in \cite{lavrova2017ordinary,lavrova2016ode}, we build the FCPN model of the 6-mercaptopurine metabolism.
 
 \subsubsection{Model}
-The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
+The model is shown in Figure \ref{fig:The model of 6-MP metabolism}.
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -999,11 +1001,11 @@ The model is shown as Figure \ref{fig:The model of 6-MP metabolism}.
 
 
 \subsubsection{Simulation result}
-In this example, we give the results of three modes: only ODEs, Mamdani, and T-S. The result of only ODEs is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
+In this example, we give the results of three modes: only ODEs, Mamdani, and T-S. The result of only ODEs is shown in Figure \ref{fig:Simulation result of 6-MP metabolism using only ODEs.}.
 
-When using Mamdani, we choose to assign an FIS to the arc from k0 to MPin. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using Mamdani.}.
+When using Mamdani, we choose to assign an FIS to the arc from k0 to MPin. The result is shown in Figure \ref{fig:Simulation result of 6-MP metabolism using Mamdani.}.
 
-When using T-S, we choose to assign an FIS to the arc from k0 to MPin. The result is shown as Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
+When using T-S, we choose to assign an FIS to the arc from k0 to MPin. The result is shown in Figure \ref{fig:Simulation result of 6-MP metabolism using T-S.}.
 
 As we can see, the results are almost the same.
 
