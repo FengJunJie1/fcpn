@@ -1,7 +1,7 @@
 # FCPN tool
 *FCPN* stands for "*Fuzzy Continuous Petri Nets*". The purpose of FCPN is to offer functions for modeling FCPN models and simulating them.
 <br>
-![Latest version](https://img.shields.io/badge/Latest%20version-1.0.4-blue.svg)
+![Latest version](https://img.shields.io/badge/Latest%20version-1.0.5-blue.svg)
 ![Programming language](https://img.shields.io/badge/Programming%20language-C++-red.svg)
 ![Operating system](https://img.shields.io/badge/Operating%20system-Windows_Linux_macOS-yellow.svg)
 <br>
