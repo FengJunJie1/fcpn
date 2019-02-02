@@ -1,5 +1,5 @@
 # FCPN tool
-*FCPN* stands for "*Fuzzy Continuous Petri Nets*". The purpose of FCPN is to offer functions for modeling FCPN models and simulating them.
+*FCPN* stands for "*Fuzzy Continuous Petri Nets*". The CPN tool aims to offer functions for cnostructing and simulating FCPN models. This is the first tool to realize FCPNs in a graphical and easy-to-use way.
 <br>
 ![Latest version](https://img.shields.io/badge/Latest%20version-1.0.5-blue.svg)
 ![Programming language](https://img.shields.io/badge/Programming%20language-C++-red.svg)
@@ -7,6 +7,7 @@
 <br>
 *Authors*: Fei Liu, Wujie Sun, Yexuan Sun, Yuchen Zhou, Shijing Zhu, and Zhijie Zhang.
 ## News
+2019-2-1  New Windows version of FCPN is released by fixing some bugs and improving the users' experience.<br>
 2019-1-18  MacOS beta version of FCPN is released.<br>
 2018-12-22 Linux beta version of FCPN is released.<br>
 2018-12-05 New Windows stable version of FCPN is released.<br>
@@ -30,6 +31,7 @@ This software includes three main functions: continuous Petri nets modeling, fuz
   * Concise and efficient interface design.
   * Multiple fuzzy logic choices: Mamdani & T-S fuzzy inference.
   * Simple and fast fuzzy logic settings.
+  * Saved as PNML format.
 * Features for simulation
   * Highly automated simulation process.
   * Diversified export of simulation results.
@@ -37,7 +39,7 @@ This software includes three main functions: continuous Petri nets modeling, fuz
 ## Download and Get Started.
 Operating environment:
 <br>
-The software is developed with C++ and QT in the Windows operational systems. We offer the Windows, Linux, and macOS(beta) versions. 
+The software is developed with C++ and QT in the Windows operational systems. We offer the Windows, Linux, and macOS (beta) versions. We encourage you to use the tool in the Windows environment as it has been performed strict testing in this environment. We welcome any use suggestions and comments in different operational systems. 
 <br>
 **************************
 Download:
@@ -68,7 +70,7 @@ Q: How does a node name in FCPN look like?
 <br>
 • underscore _
 <br>
-The name has to start with a letter or underscore and followed by any combination of all symbols above. Otherwise compiler errors might occur.**
+The name has to start with a letter or underscore and followed by any combination of all symbols above. Otherwise errors might occur.**
 <br>
 **************************
 Q: What does the function MassAction() mean?
@@ -84,4 +86,4 @@ FCPN is under active development. If you have any questions, please feel free to
 <br>
 **Email**: `liuf_2001@163.com`
 <br>
-**Address**: `University Town Campus of South China University of Technology, Guangzhou, Guangdong, China`
+**Address**: `University Town Campus, South China University of Technology, Guangzhou, Guangdong, China`
