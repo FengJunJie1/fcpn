@@ -58,7 +58,12 @@ Download:
   * MacOS 10.14 Mojave: Please download [FCPN.dmg](https://github.com/liufei2016/fcpn/raw/master/FCPN.dmg).
   * Run the software.
 ## Manual
-Manual can be found at [Manual.pdf](https://github.com/liufei2016/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples](https://github.com/liufei2016/fcpn/raw/master/Examples).
+Manual can be found at [Manual.pdf](https://github.com/liufei2016/fcpn/raw/master/Manual.pdf). The examples in the manual can be downloaded from [Examples](https://github.com/liufei2016/fcpn/raw/master/Examples), which include:
+* One-dimensional (1D) diffusion
+* Enzymatic reaction
+* RKIP pathway
+* 6-mercaptopurine metabolism
+
 ## FAQs
 Q: How does a node name in FCPN look like?
 <br>
