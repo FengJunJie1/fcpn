@@ -1,5 +1,5 @@
 # FCPN tool
-*FCPN* stands for "*Fuzzy Continuous Petri Nets*". The CPN tool aims to offer functions for cnostructing and simulating FCPN models. This is the first tool to realize FCPNs in a graphical and easy-to-use way.
+*FCPN* stands for "*Fuzzy Continuous Petri Nets*". The CPN tool aims to offer functions for constructing and simulating FCPN models. This is the first tool to realize FCPNs in a graphical and easy-to-use way.
 <br>
 ![Latest version](https://img.shields.io/badge/Latest%20version-1.0.5-blue.svg)
 ![Programming language](https://img.shields.io/badge/Programming%20language-C++-red.svg)
