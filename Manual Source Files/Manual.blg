@@ -1,11 +1,54 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: Manual.aux
+This is BibTeX, Version 0.99d (TeX Live 2018/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Manual.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
-Repeated entry---line 271 of file ref.bib
+Repeated entry---line 571 of file ref.bib
  : @article{Zad65
  :               ,
 I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in Zad65
 Name 2 in "MA Bl\"atke and M Heiner, and W Marwan" has a comma at the end for entry BHM11
 while executing---line 944 of file unsrt.bst
+You've used 17 entries,
+            1791 wiz_defined-function locations,
+            578 strings with 6404 characters,
+and the built_in function-call counts, 4019 in all, are:
+= -- 366
+> -- 165
+< -- 2
++ -- 62
+- -- 45
+* -- 288
+:= -- 647
+add.period$ -- 55
+call.type$ -- 17
+change.case$ -- 17
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 172
+empty$ -- 391
+format.name$ -- 45
+if$ -- 896
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 17
+newline$ -- 90
+num.names$ -- 19
+pop$ -- 36
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 71
+stack$ -- 0
+substring$ -- 295
+swap$ -- 35
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 37
+width$ -- 19
+write$ -- 193
 (There were 2 error messages)

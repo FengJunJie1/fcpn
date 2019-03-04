@@ -2,6 +2,8 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 %opening
 
 \usepackage[colorlinks,
@@ -1035,6 +1037,76 @@ As we can see, the results are almost the same.
 \end{figure}
 
 
+\clearpage
+
+
+\section{Combine FCPN with neuro-fuzzy system}
+\subsection{Introduction}
+Since some parameters of fuzzy sets of Mamdani and T-S are not easy to determine, some experts have proposed a method of using neural networks to train datas to obtain fuzzy set parameters and rules \cite{jang1993anfis}\cite{Xiao2015Research}.
+
+In order to make it easier for users to train and get relevant parameters, we have added the function of automatically exporting .m files in the software. Users only need to open the file with MATLAB, fill in the relevant data, and run it to get the result.
+\subsection{Instruction}
+\subsubsection{Output the file}
+If you want to output the .m file, you should follow the instruction in section 2.2. It does not matter if you are not sure about the correct parameters. However, make sure to fill in the appropriate rules which will be used in MATLAB. Of course, you can edit the rules in MATLAB as well. After that, you will get a result like Figure \ref{fig:Output the file.}.
+
+Left click the ``Output to .m file'' button to output the file.
+\begin{figure}[!hbt]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{fig61}
+		\caption{Output the file.}
+		\label{fig:Output the file.}
+	\end{center}
+\end{figure}
+\subsubsection{Train datas in MATLAB}
+\begin{itemize}
+	\item \textbf{Mamdani}
+	
+	If the type of FIS is Mamdani, you will get two files. The comment content describes the variables to help you understand the code better.
+	
+	Part of the code in the file is similar to Figure \ref{fig:Part of the code in Mamdani type file.}.
+	\begin{figure}[!hbt]
+		\begin{center}
+			\includegraphics[width=\columnwidth]{fig62}
+			\caption{Part of the code in Mamdani type file.}
+			\label{fig:Part of the code in Mamdani type file.}
+		\end{center}
+	\end{figure}
+	You should import the training datas to \textbf{input\_train} and \textbf{out\_train} using \textbf{csvread('data.csv')} or something like this. The \textbf{train\_m} and \textbf{train\_sigma} should also be editted by yourself. Make sure the orders of input datas should be consistent with \textbf{input\_train}, \textbf{train\_m}, \textbf{train\_sigma}, and \textbf{rules}.
+	
+	\textbf{rate, epoch($\eta$), a, b, kk} can also be editted to achieve better result. The following equation illustrates the role of a, b, and kk.
+	
+	\begin{equation}    
+	\eta =
+	\begin{cases}
+	a*\eta   &  \text{E(t+1)/E(t) < 1} \\
+	b*\eta	 &  \text{E(t+1)/E(t) $\ge$ kk}\\
+	\eta     &  \text{other}
+	\end{cases}                
+	\end{equation}
+	where E(t+1) is the new error and E(t) is the old error.
+	
+	In the end, run the code to get the trained parameters and fill them in FCPN.
+
+	\item \textbf{T-S}
+	
+	If the type of FIS is T-S, you will get one file. The comment content describes the variables to help you understand the code better.
+	
+	Part of the code in the file is similar to Figure \ref{fig:Part of the code in T-S type file.}.
+	\begin{figure}[!hbt]
+		\begin{center}
+			\includegraphics[width=\columnwidth]{fig63}
+			\caption{Part of the code in T-S type file.}
+			\label{fig:Part of the code in T-S type file.}
+		\end{center}
+	\end{figure}
+
+	You should import the training datas to \textbf{trnData} using \textbf{csvread('data.csv')} or something like this. Make sure the output data should be in the last column. 
+	
+	You can also adjust the \textbf{epoch}.
+	
+	In the end, run the code to get the trained parameters and fill them in FCPN.
+	
+\end{itemize}
 \clearpage
 %\section{References}
 \bibliographystyle{unsrt}

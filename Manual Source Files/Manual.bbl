@@ -94,4 +94,16 @@ Anastasia~I Lavrova, Eugene~B Postnikov, Andrey~Yu Zyubin, and Svetlana~V
   6-mercaptopurine metabolism.
 \newblock {\em arXiv preprint arXiv:1611.00054}, 2016.
 
+\bibitem{jang1993anfis}
+J-SR Jang.
+\newblock Anfis: adaptive-network-based fuzzy inference system.
+\newblock {\em IEEE transactions on systems, man, and cybernetics},
+  23(3):665--685, 1993.
+
+\bibitem{Xiao2015Research}
+L.~U. Xiao-Feng, Xiao~Min Wang, and L.~I. Guang-Yao.
+\newblock Research on phase-sensitive track circuit fault diagnosis based on
+  mamdani fuzzy neural network.
+\newblock {\em Railway Standard Design}, 2015.
+
 \end{thebibliography}
