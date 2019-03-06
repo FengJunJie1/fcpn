@@ -1,7 +1,7 @@
 # FCPN tool
 *FCPN* stands for "*Fuzzy Continuous Petri Nets*". The CPN tool aims to offer functions for constructing and simulating FCPN models. This is the first tool to realize FCPNs in a graphical and easy-to-use way.
 <br>
-![Latest version](https://img.shields.io/badge/Latest%20version-1.1.0-blue.svg)
+![Latest version](https://img.shields.io/badge/Latest%20version-1.1.1-blue.svg)
 ![Programming language](https://img.shields.io/badge/Programming%20language-C++-red.svg)
 ![Operating system](https://img.shields.io/badge/Operating%20system-Windows_Linux_macOS-yellow.svg)
 <br>
@@ -69,11 +69,11 @@ Q: How does a node name in FCPN look like?
 <br>
 **A: At first all names have to be unique in a net. It can contain any of the following elements:
 <br>
-â€¢ letters a-z and A-Z
+â€?letters a-z and A-Z
 <br>
-â€¢ numbers 0-9
+â€?numbers 0-9
 <br>
-â€¢ underscore _
+â€?underscore _
 <br>
 The name has to start with a letter or underscore and followed by any combination of all symbols above. Otherwise errors might occur.**
 <br>
