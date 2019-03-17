@@ -69,11 +69,11 @@ Q: How does a node name in FCPN look like?
 <br>
 **A: At first all names have to be unique in a net. It can contain any of the following elements:
 <br>
-â€?letters a-z and A-Z
+Â· letters a-z and A-Z
 <br>
-â€?numbers 0-9
+Â· numbers 0-9
 <br>
-â€?underscore _
+Â· underscore _
 <br>
 The name has to start with a letter or underscore and followed by any combination of all symbols above. Otherwise errors might occur.**
 <br>
